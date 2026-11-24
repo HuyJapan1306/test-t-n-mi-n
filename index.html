@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="#fff6f9" name="theme-color"/>
+    <title>Góc nhỏ có em — Quản lý cửa hàng thú cưng thông minh</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png"/>
+    <link rel="stylesheet" href="assets/css/admin.css?v=20261124h"/>
+</head>
+<body class="auth-checking">
+    <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+        <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-8h6v8"/></symbol>
+        <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2l2.4 12h12l2-9H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></symbol>
+        <symbol id="i-box" viewBox="0 0 24 24"><path d="m3 7 9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10M7.5 5l9 4"/></symbol>
+        <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2zM16 5a3 3 0 0 1 0 6M17 14a5 5 0 0 1 4 5v1"/></symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24"><rect height="16" rx="2" width="18" x="3" y="5"/><path d="M7 3v4M17 3v4M3 10h18"/></symbol>
+        <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 2 2.1 6.9L21 11l-6.9 2.1L12 20l-2.1-6.9L3 11l6.9-2.1zM19 18v4M17 20h4"/></symbol>
+        <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1 2.2-2.3 2.3-2.2-.1-.9 1.8h-4.2l-.9-1.8-2.2.1-2.3-2.3.1-2.2L2.8 14v-4l1.8-1-.1-2.2 2.3-2.3 2.2.1.9-1.8h4.2l.9 1.8 2.2-.1 2.3 2.3-.1 2.2 1.8 1v4z"/></symbol>
+        <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></symbol>
+        <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 9h18c0-1-3-2-3-9M10 21h4"/></symbol>
+        <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+        <symbol id="i-bars" viewBox="0 0 24 24"><path d="M4 20V10h4v10M10 20V4h4v16M16 20v-8h4v8"/></symbol>
+        <symbol id="i-wallet" viewBox="0 0 24 24"><rect height="16" rx="3" width="20" x="2" y="5"/><path d="M17 14h5M2 9h20M5 5V3h13"/></symbol>
+        <symbol id="i-paw" viewBox="0 0 24 24"><ellipse cx="12" cy="16" rx="6" ry="4"/><ellipse cx="5" cy="9" rx="1.5" ry="2.2"/><ellipse cx="10" cy="5" rx="1.5" ry="2.2"/><ellipse cx="16" cy="5" rx="1.5" ry="2.2"/><ellipse cx="20" cy="10" rx="1.5" ry="2.2"/></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+        <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4zM11 13 22 2"/></symbol>
+    </svg>
+
+    <div class="app">
+        <div aria-hidden="true" class="mobile-overlay" id="mobileOverlay"></div>
+
+        <!-- SIDEBAR -->
+        <aside aria-label="Thanh điều hướng" class="sidebar" id="sidebar">
+            <div class="brand">
+                <img src="assets/images/logo.png" alt="Logo Góc nhỏ có em" class="brand-logo-img"/>
+                <div>
+                    <div class="brand-name">Góc nhỏ <span>có em</span></div>
+                    <div class="brand-tag">PET STORE MANAGER</div>
+                </div>
+            </div>
+
+            <nav aria-label="Điều hướng chính">
+                <button class="nav-btn active" data-view="dashboard"><i data-ico="home"></i> Tổng quan</button>
+                <button class="nav-btn" data-view="pos"><i data-ico="cart"></i> Bán hàng</button>
+                <button class="nav-btn" data-view="orders"><i data-ico="orders"></i> Đơn hàng <span class="nav-badge" id="pendingCount">0</span></button>
+                <button class="nav-btn" data-view="invoices"><i data-ico="receipt"></i> Hóa đơn</button>
+                <button class="nav-btn" data-view="products"><i data-ico="box"></i> Sản phẩm</button>
+                <button class="nav-btn" data-view="inventory"><i data-ico="warehouse"></i> Kho &amp; Nhập hàng <span class="nav-badge hide" id="pendingImportCount">0</span></button>
+                <button class="nav-btn" data-view="customers"><i data-ico="users"></i> Khách hàng</button>
+                <button class="nav-btn admin-only" data-view="employees"><i data-ico="staff"></i> Nhân viên &amp; TK</button>
+                <button class="nav-btn" data-view="appointments"><i data-ico="calendar"></i> Dịch vụ &amp; Lịch hẹn</button>
+                <button class="nav-btn" data-view="reports"><i data-ico="chart"></i> Báo cáo thống kê</button>
+                <button class="nav-btn" data-view="notifications"><i data-ico="bell"></i> Thông báo</button>
+                <button class="nav-btn" data-view="ai"><i data-ico="sparkles"></i> Trợ lý AI <span class="nav-badge">AI</span></button>
+                <a class="nav-btn" href="customer.html" style="text-decoration:none">
+                    <i data-ico="shop"></i>
+                    Trang khách hàng
+                </a>
+            </nav>
+
+            <div class="nav-label">HỆ THỐNG</div>
+            <nav>
+                <button class="nav-btn" data-view="account"><i data-ico="account"></i> Hồ sơ cá nhân</button>
+                <button class="nav-btn admin-only" data-view="store-info"><i data-ico="map-pin"></i> Thông tin cửa hàng</button>
+                <button class="nav-btn admin-only" data-view="settings"><i data-ico="settings"></i> Cài đặt</button>
+            </nav>
+
+            <div class="sidebar-spacer"></div>
+
+            <div class="side-profile-wrap" id="sideUserMenuWrap">
+                <div class="user-dropdown drop-up hide" id="sideUserMenu" role="menu">
+                    <button type="button" class="user-dropdown-item" data-user-action="edit-profile" role="menuitem">
+                        <i data-ico="edit"></i> Chỉnh sửa thông tin
+                    </button>
+                    <button type="button" class="user-dropdown-item" data-user-action="change-password" role="menuitem">
+                        <i data-ico="lock"></i> Đổi mật khẩu
+                    </button>
+                </div>
+                <button type="button" class="side-profile side-profile-btn" id="sideUserMenuBtn" aria-haspopup="menu" aria-expanded="false">
+                    <div class="avatar" id="sideAvatar">QL</div>
+                    <div style="text-align:left;min-width:0">
+                        <strong id="sideUserName">Quản lý cửa hàng</strong>
+                        <small id="sideUserRole">Quản trị viên</small>
+                    </div>
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <div class="main">
+            <header class="topbar">
+                <div style="display:flex;align-items:center;gap:12px">
+                    <button aria-label="Mở menu" class="round-btn menu-toggle" id="menuToggle">
+                        <svg class="icon"><use href="#i-menu"/></svg>
+                    </button>
+                    <div class="breadcrumb">
+                        Góc nhỏ có em &nbsp;/&nbsp; <b id="breadcrumb">Tổng quan</b>
+                    </div>
+                </div>
+                <div class="top-actions">
+                    <span class="date-tag" id="todayLabel"></span>
+                    <button aria-label="Thông báo" class="round-btn" id="notifyBtn">
+                        <i data-ico="bell" data-ico-cls="m-ico-md"></i>
+                        <span class="notification-dot hide" id="notifyDot"></span>
+                    </button>
+                    <div class="user-menu-wrap" id="topUserMenuWrap">
+                        <button type="button" class="top-user-btn" id="topUserMenuBtn" aria-haspopup="menu" aria-expanded="false" title="Tài khoản">
+                            <span class="mini-avatar" id="topAvatar">QL</span>
+                            <span class="top-user-name" id="topUserName">Quản lý cửa hàng</span>
+                        </button>
+                        <div class="user-dropdown hide" id="topUserMenu" role="menu">
+                            <button type="button" class="user-dropdown-item" data-user-action="edit-profile" role="menuitem">
+                                <i data-ico="edit"></i> Chỉnh sửa thông tin
+                            </button>
+                            <button type="button" class="user-dropdown-item" data-user-action="change-password" role="menuitem">
+                                <i data-ico="lock"></i> Đổi mật khẩu
+                            </button>
+                        </div>
+                    </div>
+                    <button aria-label="Đăng xuất" class="top-logout-btn" id="logoutBtn" type="button" title="Đăng xuất">
+                        <i data-ico="logout"></i> <span>Đăng xuất</span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="content">
+                <!-- 1. DASHBOARD -->
+                <section aria-label="Tổng quan" class="view active" id="view-dashboard">
+                    <div class="header-row">
+                        <div>
+                            <h1 class="page-title" id="welcomeHeading">Chào ngày mới, quản lý!</h1>
+                        </div>
+                        <button class="primary-btn" data-go="pos" type="button">
+                            <i data-ico="cart"></i>
+                            Bán hàng
+                        </button>
+                    </div>
+
+                    <div class="stats" id="stats"></div>
+
+                    <div class="row">
+                        <section class="card panel">
+                            <div class="panel-head">
+                                <div>
+                                    <h2 class="panel-title title-with-ico"><i data-ico="chart"></i> Doanh thu cửa hàng</h2>
+                                    <p class="panel-sub">Thống kê trực tiếp từ các đơn hàng trong MySQL</p>
+                                </div>
+                                <select aria-label="Khoảng thời gian biểu đồ" class="select" id="chartRange">
+                                    <option value="7">7 ngày qua</option>
+                                    <option value="30">30 ngày qua</option>
+                                </select>
+                            </div>
+                            <div class="chart-wrap" id="salesChart"></div>
+                            <div class="chart-summary">
+                                <span class="legend-dot"></span>
+                                Doanh thu theo ngày (không tính đơn hủy)
+                                <span id="chartTotal" style="margin-left:auto"></span>
+                            </div>
+                        </section>
+
+                        <section class="card panel">
+                            <div class="panel-head">
+                                <div>
+                                    <h2 class="panel-title title-with-ico"><i data-ico="orders"></i> Tình trạng đơn hàng</h2>
+                                    <p class="panel-sub">Tổng hợp theo trạng thái xử lý</p>
+                                </div>
+                            </div>
+                            <div class="donut-flex">
+                                <div class="donut" id="donut">
+                                    <div class="donut-center">
+                                        <strong id="donutCount">0</strong>
+                                        <span>đơn hàng</span>
+                                    </div>
+                                </div>
+                                <div class="donut-legend">
+                                    <div class="legend-item"><i style="background:#f582a9"></i> Hoàn thành <b id="doneCount">0</b></div>
+                                    <div class="legend-item"><i style="background:#a792ea"></i> Đang giao <b id="shippingCount">0</b></div>
+                                    <div class="legend-item"><i style="background:#ffd398"></i> Chờ / Xác nhận <b id="waitingCount">0</b></div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="bottom-row">
+                        <section class="card panel">
+                            <div class="panel-head">
+                                <div>
+                                    <h2 class="panel-title title-with-ico"><i data-ico="orders"></i> Đơn hàng gần đây</h2>
+                                    <p class="panel-sub">Cập nhật mới nhất từ cửa hàng</p>
+                                </div>
+                                <button class="section-link" data-go="orders">Xem tất cả</button>
+                            </div>
+                            <div class="table-wrap" id="recentOrders"></div>
+                        </section>
+
+                        <div class="right-stack">
+                            <section class="card thin-panel">
+                                <div class="panel-head" style="margin-bottom:8px">
+                                    <div>
+                                        <h2 class="panel-title title-with-ico"><i data-ico="sparkles"></i> AI gợi ý hôm nay</h2>
+                                        <p class="panel-sub">Phân tích tự động từ kho &amp; đơn hàng</p>
+                                    </div>
+                                </div>
+                                <div id="aiInsights"></div>
+                                <button class="section-link" data-go="ai" style="margin-top:14px">Hỏi Pawly AI</button>
+                            </section>
+
+                            <section class="card thin-panel">
+                                <div class="panel-head">
+                                    <div>
+                                        <h2 class="panel-title title-with-ico"><i data-ico="calendar"></i> Lịch hẹn sắp tới</h2>
+                                        <p class="panel-sub">Các bé đang chờ được chăm sóc</p>
+                                    </div>
+                                    <button class="section-link" data-go="appointments">Xem thêm</button>
+                                </div>
+                                <div class="appointments" id="dashboardAppointments"></div>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 1b. POS (BÁN HÀNG TẠI QUẦY) -->
+                <section aria-label="Bán hàng" class="view" id="view-pos">
+                    <div class="header-row">
+                        <div>
+                            <h1 class="page-title title-with-ico">Bán hàng <i data-ico="cart" data-ico-cls="m-ico-lg"></i></h1>
+                        </div>
+                        <button class="outline-btn" data-go="orders" type="button"><i data-ico="orders"></i> Xem danh sách đơn hàng</button>
+                    </div>
+
+                    <div class="pos-layout">
+                        <!-- CỘT TRÁI: CHỌN SẢN PHẨM -->
+                        <div class="pos-catalog">
+                            <div class="toolbar" style="margin-bottom:14px">
+                                <label class="field-search" style="max-width:none">
+                                    <i data-ico="search"></i>
+                                    <input id="posSearch" placeholder="Tìm tên hoặc mã sản phẩm"/>
+                                </label>
+                                <select aria-label="Lọc danh mục sản phẩm" class="select" id="posCategoryFilter">
+                                    <option value="all">Tất cả danh mục</option>
+                                </select>
+                            </div>
+                            <div class="pos-product-grid" id="posProductGrid"></div>
+                        </div>
+
+                        <!-- CỘT PHẢI: HÓA ĐƠN & THANH TOÁN -->
+                        <aside class="card pos-cart-panel">
+                            <div class="pos-cart-head">
+                                <div class="pos-cart-title-wrap">
+                                    <span class="pos-cart-ico"><i data-ico="bag"></i></span>
+                                    <div>
+                                        <div class="pos-cart-title-row">
+                                            <h2 class="pos-cart-title">Hóa đơn</h2>
+                                            <span class="pos-cart-count" id="posCartCount">0 món</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="pos-clear-btn" id="posClearBtn" disabled>Xóa giỏ</button>
+                            </div>
+
+                            <div class="pos-cart-body">
+                                <div class="pos-section">
+                                    <div class="pos-section-label">Thông tin khách hàng</div>
+                                    <div class="pos-customer-grid">
+                                        <div class="pos-field">
+                                            <label for="posPhone">SĐT</label>
+                                            <input id="posPhone" type="tel" inputmode="tel" maxlength="15" placeholder="Nhập SĐT khách"/>
+                                        </div>
+                                        <div class="pos-field">
+                                            <label for="posCustomerName">Tên khách</label>
+                                            <input id="posCustomerName" maxlength="100" placeholder="Nhập tên khách"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pos-code-box">
+                                    <div class="pos-code-bar">
+                                        <input id="posCodeInput" maxlength="20" placeholder="Nhập mã sản phẩm (VD: SP11)"/>
+                                        <button type="button" class="primary-btn small-btn" id="posCodeLookupBtn">Chọn</button>
+                                    </div>
+                                    <div class="pos-code-preview hide" id="posCodePreview"></div>
+                                </div>
+
+                                <div class="pos-cart-list hide" id="posCartList"></div>
+
+                                <div class="pos-pay-section">
+                                    <div class="pos-section-label">Thanh toán</div>
+                                    <div class="pos-pay-tabs" id="posPayTabs">
+                                        <button type="button" class="pos-pay-tab active" data-pos-pay="cod"><i data-ico="wallet"></i> Tiền mặt</button>
+                                        <button type="button" class="pos-pay-tab" data-pos-pay="bank_transfer"><i data-ico="cart"></i> Chuyển khoản / QR</button>
+                                    </div>
+
+                                    <div class="pos-cash-box" id="posCashBox">
+                                        <div class="pos-cash-row">
+                                            <label for="posCashGiven">Khách đưa (₫)</label>
+                                            <input id="posCashGiven" type="number" min="0" step="1000" placeholder="0"/>
+                                        </div>
+                                        <div class="pos-quick-cash" id="posQuickCash">
+                                            <button type="button" class="chip" data-cash-exact="1">Đúng tiền</button>
+                                            <button type="button" class="chip" data-cash-val="100000">100k</button>
+                                            <button type="button" class="chip" data-cash-val="200000">200k</button>
+                                            <button type="button" class="chip" data-cash-val="500000">500k</button>
+                                        </div>
+                                        <div class="pos-change-row" id="posChangeRow">
+                                            <span>Tiền thừa trả khách</span>
+                                            <strong id="posChangeAmount">0 ₫</strong>
+                                        </div>
+                                    </div>
+
+                                    <div class="pos-qr-box hide" id="posQrBox">
+                                        <div class="pos-qr-svg" id="posQrVisual">
+                                            <svg viewBox="0 0 120 120" width="90" height="90" role="img" aria-label="QR thanh toán">
+                                                <rect width="120" height="120" rx="8" fill="#ffffff"/>
+                                                <rect x="8" y="8" width="28" height="28" rx="4" fill="none" stroke="#423444" stroke-width="4"/>
+                                                <rect x="15" y="15" width="14" height="14" rx="2" fill="#df5889"/>
+                                                <rect x="84" y="8" width="28" height="28" rx="4" fill="none" stroke="#423444" stroke-width="4"/>
+                                                <rect x="91" y="15" width="14" height="14" rx="2" fill="#df5889"/>
+                                                <rect x="8" y="84" width="28" height="28" rx="4" fill="none" stroke="#423444" stroke-width="4"/>
+                                                <rect x="15" y="91" width="14" height="14" rx="2" fill="#df5889"/>
+                                                <g fill="#423444">
+                                                    <rect x="44" y="10" width="6" height="6"/><rect x="56" y="10" width="6" height="12"/><rect x="68" y="10" width="6" height="6"/>
+                                                    <rect x="44" y="22" width="12" height="6"/><rect x="68" y="22" width="6" height="12"/>
+                                                    <rect x="10" y="44" width="12" height="6"/><rect x="28" y="44" width="6" height="12"/><rect x="44" y="44" width="12" height="6"/>
+                                                    <rect x="68" y="44" width="12" height="6"/><rect x="86" y="44" width="6" height="12"/><rect x="98" y="44" width="12" height="6"/>
+                                                    <rect x="10" y="56" width="6" height="12"/><rect x="22" y="62" width="12" height="6"/><rect x="44" y="56" width="6" height="12"/>
+                                                    <rect x="56" y="56" width="12" height="12" fill="#df5889"/><rect x="74" y="56" width="6" height="12"/><rect x="98" y="56" width="12" height="6"/>
+                                                    <rect x="10" y="72" width="12" height="6"/><rect x="34" y="72" width="16" height="6"/><rect x="62" y="74" width="12" height="6"/>
+                                                    <rect x="80" y="72" width="12" height="6"/><rect x="98" y="68" width="12" height="12"/>
+                                                    <rect x="44" y="86" width="6" height="12"/><rect x="56" y="86" width="12" height="6"/><rect x="74" y="86" width="12" height="6"/>
+                                                    <rect x="92" y="86" width="18" height="6"/><rect x="56" y="98" width="6" height="12"/><rect x="68" y="98" width="12" height="12"/>
+                                                    <rect x="86" y="98" width="6" height="6"/><rect x="98" y="98" width="12" height="12"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="pos-qr-meta">
+                                            <strong id="posQrBankName">Vietcombank (VCB)</strong>
+                                            <div>STK: <b id="posQrBankNo">1028 6688 9999</b></div>
+                                            <div>Chủ TK: <b id="posQrBankOwner">GOC NHO CO EM</b></div>
+                                            <div id="posQrBankNoteRow">Nội dung CK: <b id="posQrBankNote">GNCE</b></div>
+                                            <div>Số tiền: <b id="posQrAmount" style="color:var(--pink-dark)">0 ₫</b></div>
+                                        </div>
+                                    </div>
+
+                                    <input class="pos-note-input" id="posNote" maxlength="200" placeholder="Ghi chú hóa đơn (tùy chọn)"/>
+                                </div>
+                            </div>
+
+                            <div class="pos-cart-foot">
+                                <div class="pos-totals">
+                                    <div class="pos-total-row"><span>Tạm tính</span><strong id="posSubtotal">0 ₫</strong></div>
+                                    <div class="pos-total-row"><span>Phí dịch vụ</span><span class="pos-free-tag">Miễn phí</span></div>
+                                    <div class="pos-total-row grand"><span>Tổng thanh toán</span><strong id="posGrandTotal">0 ₫</strong></div>
+                                </div>
+
+                                <div class="modal-alert hide" id="posError" role="alert"></div>
+                                <div class="pos-foot-actions">
+                                    <button type="button" class="outline-btn pos-print-btn" id="posPrintInvoiceBtn" disabled>
+                                        <i data-ico="printer"></i> In hóa đơn
+                                    </button>
+                                    <button type="button" class="primary-btn pos-submit-btn" id="posCheckoutBtn" disabled>
+                                        <i data-ico="check"></i> Thanh toán
+                                    </button>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </section>
+
+                <!-- 2. ORDERS -->
+                <section aria-label="Quản lý đơn hàng" class="view" id="view-orders">
+                    <div class="header-row">
+                        <div>
+                            <h1 class="page-title title-with-ico">Đơn hàng <i data-ico="orders" data-ico-cls="m-ico-lg"></i></h1>
+                        </div>
+                        <button class="primary-btn" data-go="pos" type="button">
+                            <i data-ico="cart"></i> Bán hàng
+                        </button>
+                    </div>
+                    <div class="toolbar">
+                        <label class="field-search">
+                            <i data-ico="search"></i>
+                            <input id="orderSearch" placeholder="Tìm mã đơn, tên khách, SĐT..."/>
+                        </label>
+                        <div class="toolbar-controls">
+                            <select aria-label="Lọc theo trạng thái" class="select" id="orderStatusFilter">
+                                <option value="all">Tất cả trạng thái</option>
+                                <option value="pending">Chờ xác nhận</option>
+                                <option value="confirmed">Đã xác nhận</option>
+                                <option value="shipping">Đang giao</option>
+                                <option value="done">Đã giao</option>
+                                <option value="returned">Trả hàng</option>
+                                <option value="cancelled">Đã hủy</option>
+                            </select>
+                            <select aria-label="Lọc theo năm" class="select" id="orderYearFilter">
+                                <option value="all">Tất cả các năm</option>
+                            </select>
+                            <select aria-label="Lọc theo tháng" class="select" id="orderMonthFilter">
+                                <option value="all">Tất cả các tháng</option>
+                            </select>
+                            <select aria-label="Sắp xếp theo ngày tháng" class="select" id="orderSort">
+                                <option value="desc">Ngày: Mới nhất</option>
+                                <option value="asc">Ngày: Cũ nhất</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card panel">
+                        <div class="table-wrap" id="allOrders"></div>
+                    </div>
+                </section>
+
+                <!-- 2B. INVOICES (TẠI QUẦY & ONLINE) -->
+                <section aria-label="Quản lý hóa đơn" class="view" id="view-invoices">
+                    <div class="header-row">
+                        <div>
+                            <h1 class="page-title title-with-ico">Hóa đơn <i data-ico="receipt" data-ico-cls="m-ico-lg"></i></h1>
+                        </div>
+                        <button class="primary-btn" data-go="pos" type="button">
+                            <i data-ico="cart"></i> Bán hàng
+                        </button>
+                    </div>
+                    <div class="invoice-summary-grid" id="invoiceSummaryGrid"></div>
+                    <div class="toolbar">
+                        <label class="field-search">
+                            <i data-ico="search"></i>
+                            <input id="invoiceSearch" placeholder="Tìm mã hóa đơn, mã đơn, tên khách, SĐT..."/>
+                        </label>
+                        <div class="toolbar-controls">
+                            <select aria-label="Lọc theo kênh bán" class="select" id="invoiceChannelFilter">
+                                <option value="all">Tất cả kênh bán</option>
+                                <option value="tai_quay">Tại quầy</option>
+                                <option value="online">Online</option>
+                            </select>
+                            <select aria-label="Lọc theo phương thức thanh toán" class="select" id="invoicePayFilter">
+                                <option value="all">Tất cả thanh toán</option>
+                                <option value="cod">Tiền mặt / COD</option>
+                                <option value="bank_transfer">Chuyển khoản / QR</option>
+                            </select>
+                            <select aria-label="Sắp xếp hóa đơn" class="select" id="invoiceSort">
+                                <option value="desc">Ngày xuất: Mới nhất</option>
+                                <option value="asc">Ngày xuất: Cũ nhất</option>
+                                <option value="amount_desc">Giá trị: Cao nhất</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card panel">
+                        <div class="table-wrap" id="invoiceTableWrap"></div>
+                    </div>
+                </section>
+
+                <!-- 3. PRODUCTS & CATEGORIES -->
+                <section aria-label="Quản lý sản phẩm" class="view" id="view-products">
+                    <div class="header-row">
+                        <div>
+                            <h1 class="page-title title-with-ico">Sản phẩm &amp; Danh mục <i data-ico="box" data-ico-cls="m-ico-lg"></i></h1>
+                        </div>
+                        <div class="button-group">
+                            <button class="outline-btn" data-modal="category"><i data-ico="folder"></i> Quản lý danh mục</button>
+                            <button class="primary-btn" data-modal="product">
+                                <i data-ico="plus"></i> Thêm sản phẩm
+                            </button>
+                        </div>
+                    </div>
+                    <div class="toolbar">
+                        <label class="field-search">
+                            <i data-ico="search"></i>
+                            <input id="productSearch" placeholder="Tìm tên sản phẩm..."/>
+                        </label>
+                        <div class="tool-filters" id="productFilters"></div>
+                    </div>
+                    <div class="product-grid" id="productGrid"></div>
+                </section>
+
+                <!-- 3B. INVENTORY & SUPPLIERS (KHO, YÊU CẦU NHẬP, PHIẾU NHẬP & NHÀ CUNG CẤP) -->
+                <section aria-label="Quản lý kho và nhập hàng" class="view" id="view-inventory">
+                    <div class="header-row">
+                        <div>
+                            <h1 class="page-title title-with-ico">Kho &amp; Nhập hàng <i data-ico="warehouse" data-ico-cls="m-ico-lg"></i></h1>
+                        </div>
+                        <div class="button-group">
+                            <button class="primary-btn staff-only" id="openImportRequestBtn" type="button">
+                                <i data-ico="plus"></i> Gửi yêu cầu nhập kho
+                            </button>
+                            <button class="outline-btn admin-only" id="openSupplierBtn" type="button">
+                                <i data-ico="plus"></i> Thêm nhà cung cấp
+                            </button>
+                            <button class="primary-btn admin-only" id="openImportReceiptBtn" type="button">
+                                <i data-ico="plus"></i> Lập phiếu nhập kho
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="stats" id="inventoryKpiGrid"></div>
+
+                    <div class="inv-tabs" id="invTabs">
+                        <button type="button" class="inv-tab active" data-inv-tab="stock">Tồn kho</button>
+                        <button type="button" class="inv-tab" data-inv-tab="requests">
+                            Yêu cầu nhập kho <span class="inv-tab-badge hide" id="invReqTabBadge">0</span>
+                        </button>
+                        <button type="button" class="inv-tab admin-only" data-inv-tab="receipts">Phiếu nhập kho</button>
+                        <button type="button" class="inv-tab admin-only" data-inv-tab="suppliers">Nhà cung cấp</button>
+                    </div>
+
+                    <!-- TAB 1: TỒN KHO -->
+                    <div class="inv-pane" id="invPane-stock">
+                        <div class="toolbar">
+                            <label class="field-search">
+                                <i data-ico="search"></i>
+                                <input id="invStockSearch" placeholder="Tìm mã SP, tên sản phẩm..."/>
+                            </label>
+                            <div class="toolbar-controls">
+                                <select aria-label="Lọc mức tồn kho" class="select" id="invStockFilter">
+                                    <option value="all">Tất cả mức tồn</option>
+                                    <option value="low">Sắp hết hàng (≤ 10)</option>
+                                    <option value="out">Đã hết hàng (0)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card panel">
+                            <div class="table-wrap" id="invStockTableWrap"></div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: YÊU CẦU NHẬP KHO -->
+                    <div class="inv-pane hide" id="invPane-requests">
+                        <div class="toolbar">
+                            <label class="field-search">
+                                <i data-ico="search"></i>
+                                <input id="invReqSearch" placeholder="Tìm mã yêu cầu, tên sản phẩm, người yêu cầu..."/>
+                            </label>
+                            <div class="toolbar-controls">
+                                <select aria-label="Lọc trạng thái yêu cầu" class="select" id="invReqFilter">
+                                    <option value="all">Tất cả trạng thái</option>
+                                    <option value="pending">Chờ duyệt</option>
+                                    <option value="approved">Đã nhập kho</option>
+                                    <option value="rejected">Từ chối</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card panel">
+                            <div class="table-wrap" id="invReqTableWrap"></div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: PHIẾU NHẬP KHO (ADMIN ONLY) -->
+                    <div class="inv-pane hide admin-only" id="invPane-receipts">
+                        <div class="toolbar">
+                            <label class="field-search">
+                                <i data-ico="search"></i>
+                                <input id="invReceiptSearch" placeholder="Tìm mã phiếu nhập, nhà cung cấp, người nhập..."/>
+                            </label>
+                            <div class="toolbar-controls">
+                                <select aria-label="Lọc theo nhà cung cấp" class="select" id="invReceiptSupplierFilter">
+                                    <option value="all">Tất cả nhà cung cấp</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card panel">
+                            <div class="table-wrap" id="invReceiptTableWrap"></div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 4: NHÀ CUNG CẤP (ADMIN ONLY) -->
+                    <div class="inv-pane hide admin-only" id="invPane-suppliers">
+                        <div class="toolbar">
+                            <label class="field-search">
+                                <i data-ico="search"></i>
+                                <input id="invSupplierSearch" placeholder="Tìm tên nhà cung cấp, SĐT, người liên hệ..."/>
+                            </label>
+                        </div>
+                        <div class="card panel">
+                            <div class="table-wrap" id="invSupplierTableWrap"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. CUSTOMERS -->
+                <section aria-label="Quản lý khách hàng" class="view" id="view-customers">
+                    <div class="header-row">
+                        <div>
+                            <h1 class="page-title title-with-ico">Khách hàng thân yêu <i data-ico="users" data-ico-cls="m-ico-lg"></i></h1>
+                        </div>
+                    </div>
+                    <div class="toolbar">
+                        <label class="field-search">
+                            <i data-ico="search"></i>
+                            <input id="customerSearch" placeholder="Tìm tên, SĐT, email, tên thú cưng..."/>
+                        </label>
+                    </div>
+                    <div class="card panel">
+                        <div class="table-wrap" id="customerTable"></div>
+                    </div>
+                </section>
+
+                <!-- 5. EMPLOYEES & ACCOUNTS (ADMIN ONLY) -->
+                <section aria-label="Quản lý nhân viên" class="view" id="view-employees">
+                    <div class="header-row">
+                        <div>
+                            <h1 class="page-title title-with-ico">Nhân viên &amp; Tài khoản <i data-ico="staff" data-ico-cls="m-ico-lg"></i></h1>
+                        </div>
+                        <button class="primary-btn admin-only" data-modal="employee"><i data-ico="plus"></i> Thêm nhân viên</button>
+                    </div>
+                    <div class="secondary-grid" style="margin-bottom:18px">
+                        <div class="card mini-stat"><div class="stat-label">Tổng nhân viên</div><div class="stat-number" id="employeeTotal">0</div></div>
+                        <div class="card mini-stat"><div class="stat-label">Tài khoản đang hoạt động</div><div class="stat-number" id="employeeActive">0</div></div>
+                    </div>
+                    <div class="toolbar">
+                        <label class="field-search">
+                            <i data-ico="search"></i>
+                            <input id="employeeSearch" placeholder="Tìm tên, chức vụ, email..."/>
+                        </label>
+                    </div>
+                    <div class="card panel">
+                        <div class="table-wrap" id="employeeTable"></div>
+                    </div>
+                </section>
+
+                <!-- 6. SERVICES & APPOINTMENTS -->
+                <section aria-label="Dịch vụ và lịch hẹn" class="view" id="view-appointments">
+                    <div class="header-row">
+                        <div>
+                            <h1 class="page-title title-with-ico">Dịch vụ &amp; Lịch hẹn <i data-ico="spa" data-ico-cls="m-ico-lg"></i></h1>
+                        </div>
+                        <div class="button-group">
+                            <button class="outline-btn" data-modal="service"><i data-ico="spa"></i> Thêm dịch vụ Spa</button>
+                            <button class="primary-btn" data-modal="appointment">
+                                <i data-ico="plus"></i> Đặt lịch mới
+                            </button>
+                        </div>
+                    </div>
+                    <div class="secondary-grid" style="margin-bottom:19px">
+                        <div class="card mini-stat"><div class="stat-label">Tổng lịch hẹn</div><div class="stat-number" id="appointmentTotal">0</div></div>
+                        <div class="card mini-stat"><div class="stat-label">Lịch hẹn sắp tới</div><div class="stat-number" id="appointmentUpcoming">0</div></div>
+                    </div>
+                    <div class="card panel" style="margin-bottom:20px">
+                        <div class="panel-head">
+                            <div>
+                                <h2 class="panel-title title-with-ico"><i data-ico="calendar"></i> Danh sách lịch hẹn</h2>
+                                <p class="panel-sub">Cập nhật trạng thái: Chờ xác nhận → Đã xác nhận → Hoàn thành</p>
+                            </div>
+                        </div>
+                        <div class="appointments" id="appointmentList"></div>
+                    </div>
+                    <div class="card panel">
+                        <div class="panel-head">
+                            <div>
+                                <h2 class="panel-title title-with-ico"><i data-ico="spa"></i> Danh mục dịch vụ Spa</h2>
+                                <p class="panel-sub">Đồng bộ trực tiếp với trang đặt lịch của khách hàng</p>
+                            </div>
+                        </div>
+                        <div class="table-wrap" id="servicesManageTable"></div>
+                    </div>
+                </section>
+
+                <!-- 7. REPORTS -->
+                <section aria-label="Báo cáo thống kê" class="view" id="view-reports">
+                    <div class="header-row">
+                        <div>
+                            <h1 class="page-title title-with-ico">Báo cáo thống kê <i data-ico="chart" data-ico-cls="m-ico-lg"></i></h1>
+                        </div>
+                        <button class="outline-btn" id="exportReport"><i data-ico="download"></i> Xuất báo cáo CSV</button>
+                    </div>
+                    <div class="stats" id="reportStats"></div>
+                    <div class="row">
+                        <section class="card panel">
+                            <div class="panel-head">
+                                <div>
+                                    <h2 class="panel-title title-with-ico"><i data-ico="trophy"></i> Top sản phẩm bán chạy</h2>
+                                    <p class="panel-sub">Tổng hợp từ các đơn hàng hợp lệ</p>
+                                </div>
+                            </div>
+                            <div class="report-bars" id="reportBars"></div>
+                        </section>
+                        <section class="card panel">
+                            <div class="panel-head">
+                                <div>
+                                    <h2 class="panel-title title-with-ico"><i data-ico="folder"></i> Phân bổ danh mục sản phẩm</h2>
+                                    <p class="panel-sub">Số lượng sản phẩm đang kinh doanh theo nhóm</p>
+                                </div>
+                            </div>
+                            <div id="categoryReport"></div>
+                        </section>
+                    </div>
+                    <div class="card panel">
+                        <h2 class="panel-title title-with-ico"><i data-ico="orders"></i> Chi tiết đơn hàng gần đây</h2>
+                        <div class="table-wrap" id="reportOrders" style="margin-top:14px"></div>
+                    </div>
+                </section>
+
+                <!-- 8. NOTIFICATIONS -->
+                <section aria-label="Thông báo" class="view" id="view-notifications">
+                    <div class="header-row">
+                        <div>
+                            <h1 class="page-title title-with-ico">Thông báo <i data-ico="bell" data-ico-cls="m-ico-lg"></i></h1>
+                        </div>
+                        <button class="outline-btn" id="markNotifications"><i data-ico="check"></i> Đánh dấu tất cả đã đọc</button>
+                    </div>
+                    <div class="toolbar">
+                        <div class="tool-filters" id="notificationFilters">
+                            <button class="chip selected" data-filter="all">Tất cả <span class="chip-count" id="notifCountAll">0</span></button>
+                            <button class="chip" data-filter="order"><i data-ico="orders"></i> Đơn hàng <span class="chip-count" id="notifCountOrder">0</span></button>
+                            <button class="chip" data-filter="appointment"><i data-ico="calendar"></i> Lịch hẹn <span class="chip-count" id="notifCountAppt">0</span></button>
+                            <button class="chip" data-filter="stock"><i data-ico="alert"></i> Tồn kho <span class="chip-count" id="notifCountStock">0</span></button>
+                            <button class="chip" data-filter="customer"><i data-ico="users"></i> Khách hàng <span class="chip-count" id="notifCountCustomer">0</span></button>
+                            <button class="chip" data-filter="system"><i data-ico="bell"></i> Hệ thống <span class="chip-count" id="notifCountSystem">0</span></button>
+                            <button class="chip" data-filter="unread">Chưa đọc <span class="chip-count" id="notifCountUnread">0</span></button>
+                        </div>
+                    </div>
+                    <div class="card panel" id="notificationList"></div>
+                    <div class="card panel" style="margin-top:18px">
+                        <div class="panel-head">
+                            <div>
+                                <h2 class="panel-title title-with-ico"><i data-ico="mail"></i> Lịch sử Email thông báo đơn hàng đã gửi</h2>
+                                <p class="panel-sub">Tự động gửi tới email khách hàng mỗi khi nhân viên duyệt đơn hoặc không duyệt đơn.</p>
+                            </div>
+                        </div>
+                        <div class="table-wrap" id="adminEmailLog"></div>
+                    </div>
+                </section>
+
+                <!-- 9. AI ADMIN ASSISTANT -->
+                <section aria-label="Trợ lý AI Quản trị" class="view" id="view-ai">
+                    <div class="header-row">
+                        <div>
+                            <h1 class="page-title title-with-ico">Pawly AI Quản trị <i data-ico="sparkles" data-ico-cls="m-ico-lg"></i></h1>
+                        </div>
+                        <span class="pill" id="aiProviderBadge" style="background:#fff0f6;box-shadow:none">✦ Kết nối PHP Backend</span>
+                    </div>
+                    <div class="ai-layout">
+                        <section class="card ai-chat">
+                            <div class="chat-header">
+                                <div class="bot-avatar bot-avatar-img">
+                                    <img src="assets/images/ai_mascot.jpg" alt="Pawly AI"/>
+                                </div>
+                                <div>
+                                    <strong>Pawly AI — Trợ lý quản trị Góc nhỏ có em</strong>
+                                    <small>Truy vấn đọc dữ liệu an toàn · Lưu lịch sử hội thoại</small>
+                                </div>
+                                <span class="online">● Trực tuyến</span>
+                            </div>
+                            <div aria-live="polite" class="chat-body" id="chatBody"></div>
+                            <div class="chat-suggestions">
+                                <button class="suggestion" data-suggestion="Sản phẩm nào sắp hết hàng?"><i data-ico="box"></i> Kiểm tra tồn kho</button>
+                                <button class="suggestion" data-suggestion="Tổng quan đơn hàng và doanh thu tháng này"><i data-ico="chart"></i> Doanh thu &amp; Đơn hàng</button>
+                                <button class="suggestion" data-suggestion="Top sản phẩm bán chạy nhất hiện nay"><i data-ico="trophy"></i> Top bán chạy</button>
+                                <button class="suggestion" data-suggestion="Đề xuất mẫu tin nhắn chăm sóc khách hàng"><i data-ico="chat"></i> Soạn nội dung CSKH</button>
+                            </div>
+                            <form class="chat-compose" id="chatForm">
+                                <input aria-label="Tin nhắn gửi Pawly AI" autocomplete="off" id="chatInput" maxlength="500" placeholder="Hỏi về tồn kho, doanh thu tháng, sản phẩm bán chạy..." required=""/>
+                                <button aria-label="Gửi tin nhắn" class="send-btn" type="submit">
+                                    <i data-ico="send"></i>
+                                </button>
+                            </form>
+                        </section>
+                        <div>
+                            <section class="card ai-detail">
+                                <h2 class="panel-title title-with-ico"><i data-ico="sparkles"></i> Pawly AI có thể hỗ trợ gì?</h2>
+                                <p class="panel-sub">Kết nối truy vấn MySQL an toàn phía máy chủ PHP</p>
+                                <div class="ai-capability">
+                                    <div class="stat-icon pink"><i data-ico="box" data-ico-cls="m-ico-md"></i></div>
+                                    <div><strong>Cảnh báo tồn kho</strong><small>Liệt kê sản phẩm sắp hết (≤ 10 món) để kịp thời nhập hàng.</small></div>
+                                </div>
+                                <div class="ai-capability">
+                                    <div class="stat-icon purple"><i data-ico="chart" data-ico-cls="m-ico-md"></i></div>
+                                    <div><strong>Thống kê doanh thu &amp; đơn hàng</strong><small>Tổng hợp số đơn trong tháng, doanh thu hoàn thành và sản phẩm bán chạy.</small></div>
+                                </div>
+                                <div class="ai-capability">
+                                    <div class="stat-icon orange"><i data-ico="chat" data-ico-cls="m-ico-md"></i></div>
+                                    <div><strong>Đề xuất nội dung</strong><small>Gợi ý mô tả sản phẩm hoặc mẫu tin nhắn chăm sóc khách hàng để nhân viên duyệt.</small></div>
+                                </div>
+                                <div class="demo-note">
+                                    <b>An toàn AI:</b> API key (Gemini/OpenAI nếu cấu hình) chỉ lưu ở phía máy chủ <code>backend/config/ai.local.php</code>. AI không tự ý thay đổi giá hay xác nhận đơn hàng.
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 10. ACCOUNT PROFILE -->
+                <section aria-label="Hồ sơ cá nhân" class="view" id="view-account">
+                    <div class="header-row">
+                        <div>
+                            <h1 class="page-title title-with-ico">Hồ sơ cá nhân <i data-ico="account" data-ico-cls="m-ico-lg"></i></h1>
+                        </div>
+                    </div>
+                    <div class="store-info-grid account-grid">
+                        <!-- CỘT TRÁI: THÔNG TIN CÁ NHÂN & ẢNH ĐẠI DIỆN -->
+                        <form class="card store-card" id="accountForm">
+                            <div class="store-card-head">
+                                <span class="store-card-ico"><i data-ico="account"></i></span>
+                                <h2>Thông tin cá nhân</h2>
+                            </div>
+                            <div class="store-card-body">
+                                <div class="form-field">
+                                    <label>Ảnh đại diện</label>
+                                    <div class="store-media-box">
+                                        <div class="account-avatar-preview" id="accountAvatarPreview">QL</div>
+                                        <div class="store-media-controls">
+                                            <div class="account-identity">
+                                                <strong id="accountDisplayName">Quản trị viên</strong>
+                                                <small id="accountDisplayRole">Góc nhỏ có em</small>
+                                            </div>
+                                            <input type="file" id="accountAvatarFile" accept="image/*" class="hide"/>
+                                            <div class="store-media-btns">
+                                                <label for="accountAvatarFile" class="outline-btn small-btn store-media-pick"><i data-ico="download"></i> Đổi ảnh</label>
+                                                <button type="button" class="outline-btn danger-btn small-btn hide" id="clearAccountAvatarBtn">Xóa ảnh</button>
+                                            </div>
+                                            <p class="hint">JPG, PNG, WEBP tối đa 3MB.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-grid">
+                                    <div class="form-field"><label for="accountName">Họ và tên *</label><input id="accountName" required=""/></div>
+                                    <div class="form-field"><label for="accountEmail">Email *</label><input id="accountEmail" required="" type="email"/></div>
+                                </div>
+                                <div class="form-grid">
+                                    <div class="form-field"><label for="accountPhone">Số điện thoại</label><input id="accountPhone" type="tel" placeholder="0901 234 567"/></div>
+                                    <div class="form-field">
+                                        <label>Vai trò</label>
+                                        <div class="role-readonly-box" aria-label="Vai trò tài khoản (không thể chỉnh sửa)">
+                                            <i data-ico="lock"></i>
+                                            <span id="accountRoleDisplay">Quản trị viên</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="account-card-foot">
+                                    <button class="primary-btn store-save-btn" type="submit"><i data-ico="save"></i> Lưu thông tin</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- CỘT PHẢI: ĐỔI MẬT KHẨU (TÁCH RIÊNG + XÁC NHẬN OTP EMAIL) -->
+                        <form class="card store-card" id="accountPasswordForm">
+                            <div class="store-card-head">
+                                <span class="store-card-ico"><i data-ico="lock"></i></span>
+                                <h2>Đổi mật khẩu</h2>
+                            </div>
+                            <div class="store-card-body">
+                                <div class="form-field">
+                                    <label for="accountOldPass">Mật khẩu hiện tại *</label>
+                                    <input id="accountOldPass" type="password" required="" autocomplete="current-password" placeholder="Nhập mật khẩu hiện tại"/>
+                                </div>
+                                <div class="form-field">
+                                    <label for="accountNewPass">Mật khẩu mới *</label>
+                                    <input id="accountNewPass" type="password" required="" minlength="6" autocomplete="new-password" placeholder="Tối thiểu 6 ký tự"/>
+                                </div>
+                                <div class="form-field">
+                                    <label for="accountConfirmPass">Nhập lại mật khẩu mới *</label>
+                                    <input id="accountConfirmPass" type="password" required="" minlength="6" autocomplete="new-password" placeholder="Nhập lại mật khẩu mới"/>
+                                </div>
+                                <label class="admin-check-row" for="toggleAccountPass">
+                                    <input id="toggleAccountPass" type="checkbox"/>
+                                    <span>Hiển thị mật khẩu</span>
+                                </label>
+
+                                <!-- BƯỚC 2: XÁC NHẬN MÃ OTP GỬI VỀ EMAIL -->
+                                <div class="account-otp-panel hide" id="accountOtpPanel">
+                                    <div class="account-otp-head">
+                                        <i data-ico="mail"></i>
+                                        <div>
+                                            <strong>Xác nhận qua Email</strong>
+                                            <small id="accountOtpNote">Mã xác nhận 6 chữ số đã được gửi tới email của bạn.</small>
+                                        </div>
+                                    </div>
+                                    <div class="account-otp-row">
+                                        <input id="accountOtpCode" type="text" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="Nhập mã 6 số"/>
+                                        <button type="button" class="outline-btn small-btn" id="accountOtpResendBtn" disabled>Gửi lại (30s)</button>
+                                    </div>
+                                    <div class="account-otp-foot">
+                                        <button type="button" class="text-btn" id="accountOtpCancelBtn">Nhập lại mật khẩu</button>
+                                        <button type="button" class="text-btn hide" id="accountOtpOpenMailBtn">Mở Hộp thư Email</button>
+                                    </div>
+                                </div>
+
+                                <div class="modal-alert hide" id="accountPassError" role="alert"></div>
+                                <div class="account-card-foot">
+                                    <button class="primary-btn store-save-btn" id="accountPassSubmitBtn" type="submit"><i data-ico="lock"></i> Đổi mật khẩu</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- 11. STORE INFO (ADMIN ONLY) -->
+                <section aria-label="Thông tin cửa hàng" class="view" id="view-store-info">
+                    <div class="header-row">
+                        <div>
+                            <h1 class="page-title title-with-ico">Thông tin cửa hàng <i data-ico="map-pin" data-ico-cls="m-ico-lg"></i></h1>
+                        </div>
+                    </div>
+                    <form class="store-info-form" id="storeInfoForm">
+                        <div class="store-info-grid">
+                            <!-- CỘT TRÁI: THÔNG TIN CHUNG -->
+                            <div class="card store-card">
+                                <div class="store-card-head">
+                                    <span class="store-card-ico"><i data-ico="shop"></i></span>
+                                    <h2>Thông tin chung</h2>
+                                </div>
+                                <div class="store-card-body">
+                                    <div class="form-field">
+                                        <label>Logo cửa hàng</label>
+                                        <div class="store-media-box">
+                                            <div class="store-media-preview" id="storeLogoPreview">
+                                                <img src="assets/images/logo.png" alt="Logo cửa hàng"/>
+                                            </div>
+                                            <div class="store-media-controls">
+                                                <input type="file" id="setStoreLogoFile" accept="image/*" class="hide"/>
+                                                <div class="store-media-btns">
+                                                    <label for="setStoreLogoFile" class="outline-btn small-btn store-media-pick"><i data-ico="download"></i> Đổi logo</label>
+                                                    <button type="button" class="outline-btn danger-btn small-btn hide" id="resetStoreLogoBtn">Mặc định</button>
+                                                </div>
+                                                <p class="hint">JPG, PNG, WEBP tối đa 3MB.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-grid">
+                                        <div class="form-field"><label for="setStoreName">Tên thương hiệu *</label><input id="setStoreName" required=""/></div>
+                                        <div class="form-field"><label for="setStoreHotline">Hotline</label><input id="setStoreHotline" placeholder="0901 234 567"/></div>
+                                    </div>
+                                    <div class="form-field"><label for="setStoreAddress">Địa chỉ cửa hàng</label><input id="setStoreAddress" placeholder="Số nhà, đường, quận/huyện, thành phố..."/></div>
+                                    <div class="form-field"><label for="setStoreSlogan">Khẩu hiệu / Slogan</label><input id="setStoreSlogan" placeholder="Nâng niu từng khoảnh khắc bên bé cưng"/></div>
+                                </div>
+                            </div>
+
+                            <!-- CỘT PHẢI: TÀI KHOẢN NGÂN HÀNG & MÃ QR -->
+                            <div class="card store-card">
+                                <div class="store-card-head">
+                                    <span class="store-card-ico"><i data-ico="wallet"></i></span>
+                                    <h2>Tài khoản ngân hàng &amp; Mã QR</h2>
+                                </div>
+                                <div class="store-card-body">
+                                    <div class="form-field">
+                                        <label>Ảnh mã QR chuyển khoản</label>
+                                        <div class="store-media-box">
+                                            <div class="store-media-preview" id="storeQrPreview">
+                                                <span class="store-qr-empty">Chưa có ảnh QR</span>
+                                            </div>
+                                            <div class="store-media-controls">
+                                                <input type="file" id="setBankQrFile" accept="image/*" class="hide"/>
+                                                <div class="store-media-btns">
+                                                    <label for="setBankQrFile" class="outline-btn small-btn store-media-pick"><i data-ico="download"></i> Tải ảnh mã QR</label>
+                                                    <button type="button" class="outline-btn danger-btn small-btn hide" id="clearStoreQrBtn">Xóa ảnh QR</button>
+                                                </div>
+                                                <p class="hint">JPG, PNG, WEBP tối đa 3MB.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-grid">
+                                        <div class="form-field">
+                                            <label for="setBankName">Tên ngân hàng</label>
+                                            <input id="setBankName" list="vnBankList" placeholder="Vietcombank (VCB), MB Bank..."/>
+                                            <datalist id="vnBankList">
+                                                <option value="Vietcombank (VCB)"></option>
+                                                <option value="MB Bank (MB)"></option>
+                                                <option value="Techcombank (TCB)"></option>
+                                                <option value="BIDV"></option>
+                                                <option value="VietinBank (ICB)"></option>
+                                                <option value="ACB"></option>
+                                                <option value="TPBank (TPB)"></option>
+                                                <option value="VPBank (VPB)"></option>
+                                                <option value="Sacombank (STB)"></option>
+                                                <option value="Agribank (VBA)"></option>
+                                                <option value="HDBank (HDB)"></option>
+                                                <option value="VIB"></option>
+                                                <option value="SHB"></option>
+                                                <option value="OCB"></option>
+                                                <option value="MSB"></option>
+                                                <option value="LPBank (LPB)"></option>
+                                                <option value="Nam A Bank (NAB)"></option>
+                                                <option value="SeABank (SEAB)"></option>
+                                                <option value="Eximbank (EIB)"></option>
+                                                <option value="Cake by VPBank (CAKE)"></option>
+                                            </datalist>
+                                        </div>
+                                        <div class="form-field"><label for="setBankAccountNo">Số tài khoản</label><input id="setBankAccountNo" placeholder="1028 6688 9999"/></div>
+                                    </div>
+                                    <div class="form-field"><label for="setBankAccountName">Chủ tài khoản</label><input id="setBankAccountName" placeholder="GOC NHO CO EM"/></div>
+                                    <div class="form-field"><label for="setBankTransferNote">Mã / Nội dung chuyển khoản</label><input id="setBankTransferNote" placeholder="GNCE THANH TOAN"/></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="store-save-bar">
+                            <button class="primary-btn store-save-btn" type="submit"><i data-ico="save"></i> Lưu</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- 12. SETTINGS (ADMIN ONLY) -->
+                <section aria-label="Cài đặt hệ thống" class="view" id="view-settings">
+                    <div class="header-row">
+                        <div>
+                            <h1 class="page-title title-with-ico">Cài đặt hệ thống <i data-ico="settings" data-ico-cls="m-ico-lg"></i></h1>
+                        </div>
+                    </div>
+                    <form class="card setting-panel" id="settingsForm">
+                        <h2 class="panel-title" style="margin-bottom:8px">Tùy chọn vận hành</h2>
+                        <div class="setting-row">
+                            <div><strong>Thông báo đơn hàng</strong><small>Hiển thị chấm thông báo khi có đơn hoặc cảnh báo tồn kho chưa đọc.</small></div>
+                            <label class="switch"><input checked="" id="settingNotifications" type="checkbox"/><span></span></label>
+                        </div>
+                        <div class="setting-row">
+                            <div><strong>Hiện gợi ý Pawly AI tại Dashboard</strong><small>Tự động phân tích tồn kho thấp và đơn hàng chờ xử lý.</small></div>
+                            <label class="switch"><input checked="" id="settingInsights" type="checkbox"/><span></span></label>
+                        </div>
+
+                        <hr style="border:0;border-top:1px solid #f4e4ec;margin:20px 0 16px"/>
+                        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px">
+                            <h2 class="panel-title title-with-ico" style="margin:0"><i data-ico="lock"></i> Xác nhận OTP Số điện thoại khi đăng ký</h2>
+                            <span class="pill" id="smsStatusBadge" style="background:#fff0f6;box-shadow:none">Chế độ Demo đồ án</span>
+                        </div>
+                        <div class="setting-row" style="padding-top:6px">
+                            <div><strong>Bắt buộc xác nhận OTP SĐT khi đăng ký</strong><small>Ngăn đăng ký bằng SĐT giả hoặc SĐT của người khác; chỉ tạo tài khoản sau khi nhập đúng mã 6 số.</small></div>
+                            <label class="switch"><input checked="" id="settingRegOtpEnabled" type="checkbox"/><span></span></label>
+                        </div>
+                        <div class="form-grid" style="margin:12px 0">
+                            <div class="form-field">
+                                <label for="setSmsProvider">Kênh gửi SMS OTP</label>
+                                <select id="setSmsProvider">
+                                    <option value="demo">Chế độ Demo đồ án (SMS mô phỏng + lưu MySQL)</option>
+                                    <option value="smsgate">Android SMSGate (Miễn phí 0 ₫ — gửi SMS thật qua ĐT Android)</option>
+                                    <option value="speedsms">SpeedSMS.vn (SMS thật qua API)</option>
+                                    <option value="esms">eSMS.vn (SMS thật qua API)</option>
+                                </select>
+                            </div>
+                            <div class="form-field"><label for="setSmsBrandname">Tên người gửi / Brandname (tùy chọn)</label><input id="setSmsBrandname" placeholder="Ví dụ: GocNhoCoEm"/></div>
+                        </div>
+                        <p class="hint hide" id="smsGateGuide" style="margin:0 0 12px;line-height:1.6">
+                            <b>Hướng dẫn gửi SMS thật miễn phí bằng điện thoại Android (SMSGate):</b>
+                            (1) Cài app mã nguồn mở miễn phí <b>SMSGate</b> tại <a href="https://sms-gate.app" target="_blank" rel="noopener" style="color:var(--pink-dark);font-weight:700">sms-gate.app</a> trên điện thoại Android →
+                            (2) Bật <b>Local Server</b> (cùng Wi-Fi với máy tính, VD: <code>http://192.168.1.50:8080/message</code>) hoặc <b>Cloud Server</b> (<code>https://api.sms-gate.app/3rdparty/v1/message</code>) →
+                            (3) Nhập URL, Username và Password từ app vào bên dưới, bấm <b>Lưu cài đặt</b> rồi bấm <b>Gửi SMS kiểm tra</b>.
+                        </p>
+                        <div class="form-field hide" id="smsGatewayUrlField" style="margin-bottom:10px">
+                            <label for="setSmsGatewayUrl">Địa chỉ SMS Gateway URL</label>
+                            <input id="setSmsGatewayUrl" placeholder="http://192.168.1.50:8080/message hoặc https://api.sms-gate.app/3rdparty/v1/message"/>
+                        </div>
+                        <div class="form-grid hide" id="smsApiKeyFields" style="margin-bottom:10px">
+                            <div class="form-field"><label for="setSmsApiKey" id="smsApiKeyLabel">SMS API Key / Access Token</label><input id="setSmsApiKey" type="password" placeholder="Để trống nếu giữ nguyên khóa đã lưu"/></div>
+                            <div class="form-field" id="smsSecretField"><label for="setSmsSecretKey" id="smsSecretKeyLabel">Secret Key (dành cho eSMS)</label><input id="setSmsSecretKey" type="password" placeholder="Để trống nếu giữ nguyên khóa đã lưu"/></div>
+                        </div>
+                        <div style="margin-bottom:4px">
+                            <button class="outline-btn small-btn" id="testSmsBtn" type="button"><i data-ico="send"></i> Gửi SMS kiểm tra</button>
+                        </div>
+
+                        <hr style="border:0;border-top:1px solid #f4e4ec;margin:20px 0 16px"/>
+                        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+                            <h2 class="panel-title title-with-ico" style="margin:0"><i data-ico="mail"></i> Cấu hình gửi Email thông báo (SMTP / Gmail)</h2>
+                            <span class="pill" id="smtpStatusBadge" style="background:#fff0f6;box-shadow:none">Chưa cấu hình SMTP</span>
+                        </div>
+                        <p class="hint" style="margin-bottom:12px;line-height:1.6">
+                            Để gửi Email <b>trực tiếp vào hộp thư Gmail thật của khách hàng</b>:
+                            (1) Bật <b>Xác minh 2 bước</b> cho Gmail shop →
+                            (2) Tạo <b>Mật khẩu ứng dụng (16 ký tự)</b> tại <a href="https://myaccount.google.com/apppasswords" target="_blank" rel="noopener" style="color:var(--pink-dark);font-weight:700">myaccount.google.com/apppasswords</a> →
+                            (3) Nhập Email gửi &amp; App Password bên dưới, bấm <b>Lưu cài đặt</b> rồi bấm <b>Gửi email kiểm tra</b>.
+                        </p>
+                        <div class="form-grid" style="margin-bottom:12px">
+                            <div class="form-field"><label for="setSmtpHost">SMTP Host</label><input id="setSmtpHost" placeholder="smtp.gmail.com"/></div>
+                            <div class="form-field"><label for="setSmtpPort">Cổng (Port)</label><input id="setSmtpPort" type="number" placeholder="587"/></div>
+                        </div>
+                        <div class="form-grid" style="margin-bottom:12px">
+                            <div class="form-field">
+                                <label for="setSmtpSecure">Mã hóa bảo mật</label>
+                                <select id="setSmtpSecure">
+                                    <option value="tls">STARTTLS (Cổng 587 — Gmail khuyến nghị)</option>
+                                    <option value="ssl">SSL/TLS (Cổng 465)</option>
+                                </select>
+                            </div>
+                            <div class="form-field"><label for="setSmtpFromName">Tên hiển thị người gửi</label><input id="setSmtpFromName" placeholder="Góc nhỏ có em Pet Shop"/></div>
+                        </div>
+                        <div class="form-grid" style="margin-bottom:10px">
+                            <div class="form-field"><label for="setSmtpUser">Email gửi đi (SMTP User)</label><input id="setSmtpUser" type="email" placeholder="shopcuaban@gmail.com"/></div>
+                            <div class="form-field"><label for="setSmtpPass">Mật khẩu ứng dụng (App Password)</label><input id="setSmtpPass" type="password" placeholder="Để trống nếu giữ nguyên mật khẩu đã lưu"/></div>
+                        </div>
+                        <div class="form-actions" style="margin-top:16px">
+                            <button class="outline-btn" id="testSmtpBtn" type="button"><i data-ico="mail"></i> Gửi email kiểm tra</button>
+                            <button class="primary-btn" type="submit"><i data-ico="save"></i> Lưu cài đặt</button>
+                        </div>
+                    </form>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <button aria-label="Mở trợ lý AI" class="floating-ai" data-go="ai">
+        <span class="floating-ai-badge"><i data-ico="sparkles"></i></span>
+        Hỏi Pawly AI
+    </button>
+
+    <div class="toast" id="toast" role="status"></div>
+
+    <!-- MODAL THÊM / SỬA SẢN PHẨM -->
+    <dialog class="modal" id="modal-product">
+        <div class="modal-top">
+            <div><h2 id="productModalTitle">Thêm sản phẩm mới</h2><p>Cập nhật thông tin sản phẩm trong cơ sở dữ liệu MySQL.</p></div>
+            <button aria-label="Đóng" class="close-modal" data-close="">×</button>
+        </div>
+        <form class="modal-form" id="form-product">
+            <div class="form-field">
+                <label for="p-name">Tên sản phẩm *</label>
+                <input id="p-name" maxlength="160" name="name" placeholder="Ví dụ: Hạt dinh dưỡng cho mèo" required=""/>
+            </div>
+            <div class="form-grid">
+                <div class="form-field"><label for="p-category">Danh mục *</label><select id="p-category" name="category" required=""></select></div>
+                <div class="form-field">
+                    <label for="p-pet-type">Dành cho thú cưng</label>
+                    <select id="p-pet-type" name="pet_type">
+                        <option value="ca_hai">Chó &amp; Mèo</option>
+                        <option value="cho">Chó</option>
+                        <option value="meo">Mèo</option>
+                        <option value="khac">Khác</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-grid">
+                <div class="form-field"><label for="p-price">Giá bán (VNĐ) *</label><input id="p-price" min="1000" name="price" required="" step="1" type="number" value="99000"/></div>
+                <div class="form-field"><label for="p-stock">Số lượng tồn *</label><input id="p-stock" max="100000" min="0" name="stock" required="" type="number" value="20"/></div>
+            </div>
+            <input id="p-emoji" name="emoji" type="hidden" value=""/>
+            <div class="form-field">
+                <label for="p-image-file">Hình minh họa sản phẩm</label>
+                <div class="store-media-box product-media-box" id="p-image-dropzone">
+                    <div class="store-media-preview product-media-preview" id="p-image-preview" title="Bấm để chọn ảnh sản phẩm">
+                        <span class="product-media-empty"><i data-ico="box"></i><span>Chưa có ảnh</span></span>
+                    </div>
+                    <div class="store-media-controls">
+                        <input accept="image/*,.jfif,.webp,.avif,.bmp" class="hide" id="p-image-file" type="file"/>
+                        <div class="store-media-btns">
+                            <label class="outline-btn small-btn store-media-pick" for="p-image-file"><i data-ico="download"></i> Chọn hình ảnh</label>
+                            <button class="outline-btn small-btn danger-btn hide" id="p-image-clear-btn" type="button">Bỏ chọn</button>
+                        </div>
+                        <small class="muted" id="p-image-hint">Hỗ trợ JPG, PNG, WEBP, GIF, AVIF, BMP (tối đa 10MB). Bấm chọn hoặc kéo thả ảnh vào khung.</small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-field hide" id="p-status-wrap">
+                <label for="p-status">Trạng thái kinh doanh</label>
+                <select id="p-status" name="status">
+                    <option value="active">Đang bán</option>
+                    <option value="inactive">Ngưng bán</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="p-desc">Mô tả chi tiết</label>
+                <textarea id="p-desc" name="desc" placeholder="Thành phần, công dụng, hướng dẫn sử dụng..."></textarea>
+            </div>
+            <div class="modal-alert hide" id="productFormError" role="alert"></div>
+            <div class="form-actions">
+                <button class="outline-btn" data-close="" type="button">Hủy</button>
+                <button class="primary-btn" id="p-submit-btn" type="submit">Lưu sản phẩm</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL QUẢN LÝ DANH MỤC -->
+    <dialog class="modal" id="modal-category">
+        <div class="modal-top">
+            <div><h2>Quản lý danh mục</h2><p>Thêm hoặc xóa nhóm sản phẩm của cửa hàng.</p></div>
+            <button aria-label="Đóng" class="close-modal" data-close="">×</button>
+        </div>
+        <div class="modal-form">
+            <form id="form-category" style="display:grid;gap:10px;padding-bottom:14px;border-bottom:1px solid var(--line)">
+                <div class="form-field"><label>Tên danh mục mới *</label><input name="ten_danh_muc" required="" placeholder="Ví dụ: Chuồng &amp; Balo"/></div>
+                <input name="bieu_tuong" type="hidden" value=""/>
+                <div class="form-field"><label>Mô tả ngắn</label><input name="mo_ta" placeholder="Mô tả nhóm sản phẩm..."/></div>
+                <div class="form-actions"><button class="primary-btn small-btn" type="submit">+ Thêm danh mục</button></div>
+            </form>
+            <div id="categoryManageList"></div>
+        </div>
+    </dialog>
+
+    <!-- MODAL TẠO ĐƠN HÀNG -->
+    <dialog class="modal" id="modal-order">
+        <div class="modal-top">
+            <div><h2>Tạo đơn hàng mới</h2><p>Ghi nhận đơn hàng trực tiếp và tự động trừ tồn kho.</p></div>
+            <button aria-label="Đóng" class="close-modal" data-close="">×</button>
+        </div>
+        <form class="modal-form" id="form-order">
+            <div class="form-grid">
+                <div class="form-field"><label for="o-customer">Tên khách hàng *</label><input id="o-customer" maxlength="80" name="customer" required="" placeholder="Nguyễn Minh Anh"/></div>
+                <div class="form-field"><label for="o-phone">Số điện thoại</label><input id="o-phone" maxlength="16" name="phone" type="tel" placeholder="09xxxxxxxx"/></div>
+            </div>
+            <div class="form-field"><label for="o-address">Địa chỉ nhận hàng</label><input id="o-address" name="address" placeholder="Để trống nếu mua tại quầy"/></div>
+            <div class="form-field"><label for="o-product">Sản phẩm *</label><select id="o-product" name="productId" required=""></select></div>
+            <div class="form-field"><label for="o-quantity">Số lượng *</label><input id="o-quantity" max="100" min="1" name="quantity" required="" type="number" value="1"/></div>
+            <p class="hint" id="orderTotalHint"></p>
+            <div class="form-actions">
+                <button class="outline-btn" data-close="" type="button">Hủy</button>
+                <button class="primary-btn" type="submit">Tạo đơn hàng</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL ĐẶT LỊCH HẸN -->
+    <dialog class="modal" id="modal-appointment">
+        <div class="modal-top">
+            <div><h2>Đặt lịch chăm sóc</h2><p>Ghi nhận một lịch hẹn mới cho bé cưng.</p></div>
+            <button aria-label="Đóng" class="close-modal" data-close="">×</button>
+        </div>
+        <form class="modal-form" id="form-appointment">
+            <div class="form-grid">
+                <div class="form-field"><label for="a-pet">Tên thú cưng *</label><input id="a-pet" maxlength="40" name="pet" required="" placeholder="Bông"/></div>
+                <div class="form-field"><label for="a-emoji">Loài</label><select id="a-emoji" name="emoji"><option value="Chó">Chó</option><option value="Mèo">Mèo</option><option value="Thỏ">Thỏ</option><option value="Khác">Thú cưng khác</option></select></div>
+            </div>
+            <div class="form-grid">
+                <div class="form-field"><label for="a-owner">Tên chủ nuôi *</label><input id="a-owner" maxlength="60" name="owner" required=""/></div>
+                <div class="form-field"><label for="a-phone">Số điện thoại</label><input id="a-phone" maxlength="16" name="phone" type="tel"/></div>
+            </div>
+            <div class="form-grid">
+                <div class="form-field"><label for="a-service">Dịch vụ *</label><select id="a-service" name="service" required=""></select></div>
+                <div class="form-field">
+                    <label for="a-date-vn">Ngày hẹn (ngày/tháng/năm) *</label>
+                    <div class="date-vn-wrap">
+                        <input id="a-date-vn" type="text" inputmode="numeric" placeholder="dd/mm/yyyy" maxlength="10" required=""/>
+                        <button type="button" class="date-vn-btn" id="a-date-trigger" aria-label="Mở lịch chọn ngày">
+                            <i data-ico="calendar"></i>
+                        </button>
+                        <input id="a-date-only" class="date-vn-native" type="date" tabindex="-1" aria-hidden="true"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-field">
+                <label>Khung giờ hỗ trợ * <span id="adminSlotMeta" class="slot-meta"></span></label>
+                <div class="booking-schedule-note hide" id="adminScheduleNote"></div>
+                <input id="a-slot-value" name="datetime" type="hidden"/>
+                <div class="slot-grid" id="adminSlotsGrid">
+                    <div class="slot-loading">Đang tải khung giờ...</div>
+                </div>
+            </div>
+            <div class="modal-alert hide" id="adminBookingError" role="alert"></div>
+            <div class="form-actions">
+                <button class="outline-btn" data-close="" type="button">Hủy</button>
+                <button class="primary-btn" type="submit">Lưu lịch hẹn</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL THÊM / SỬA DỊCH VỤ SPA -->
+    <dialog class="modal" id="modal-service">
+        <div class="modal-top">
+            <div><h2 id="serviceModalTitle">Thêm dịch vụ Spa mới</h2><p>Cập nhật bảng giá dịch vụ hiển thị cho khách hàng.</p></div>
+            <button aria-label="Đóng" class="close-modal" data-close="">×</button>
+        </div>
+        <form class="modal-form" id="form-service">
+            <div class="form-field"><label for="svc-name">Tên dịch vụ *</label><input id="svc-name" name="ten_dich_vu" required="" placeholder="Ví dụ: Tắm dưỡng lông thảo mộc"/></div>
+            <div class="form-grid">
+                <div class="form-field"><label for="svc-price">Giá dịch vụ (VNĐ · 0 = không để giá)</label><input id="svc-price" name="gia" type="number" min="0" step="1000" required="" value="150000"/></div>
+                <div class="form-field"><label for="svc-duration">Thời lượng (phút) *</label><input id="svc-duration" name="thoi_luong" type="number" min="15" required="" value="60"/></div>
+            </div>
+            <input id="svc-emoji" name="bieu_tuong" type="hidden" value=""/>
+            <div class="form-field">
+                <label for="svc-status">Trạng thái</label>
+                <select id="svc-status" name="trang_thai"><option value="active">Đang mở</option><option value="inactive">Tạm ẩn</option></select>
+            </div>
+            <div class="form-field"><label for="svc-desc">Mô tả dịch vụ</label><textarea id="svc-desc" name="mo_ta" placeholder="Các bước chăm sóc trong gói dịch vụ..."></textarea></div>
+            <div class="form-actions">
+                <button class="outline-btn" data-close="" type="button">Hủy</button>
+                <button class="primary-btn" type="submit">Lưu dịch vụ</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL THÊM NHÂN VIÊN -->
+    <dialog class="modal" id="modal-employee">
+        <div class="modal-top">
+            <div><h2>Thêm nhân viên &amp; cấp tài khoản</h2><p>Tự động mã hóa mật khẩu an toàn bằng password_hash().</p></div>
+            <button class="close-modal" data-close="">×</button>
+        </div>
+        <form class="modal-form" id="form-employee">
+            <div class="form-field"><label>Họ và tên *</label><input maxlength="60" name="name" required=""/></div>
+            <div class="form-grid">
+                <div class="form-field">
+                    <label>Chức vụ *</label>
+                    <select name="role">
+                        <option>Nhân viên bán hàng</option>
+                        <option>Nhân viên Spa</option>
+                        <option>Quản lý cửa hàng</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label>Phân quyền hệ thống *</label>
+                    <select name="permission">
+                        <option value="nhan_vien">Nhân viên (nhan_vien)</option>
+                        <option value="admin">Quản trị viên (admin)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-grid">
+                <div class="form-field"><label>Email đăng nhập *</label><input name="email" type="email" required=""/></div>
+                <div class="form-field"><label>Số điện thoại</label><input name="phone" type="tel"/></div>
+            </div>
+            <div class="form-field"><label>Mật khẩu khởi tạo *</label><input name="password" type="password" minlength="6" required="" value="Staff@123"/></div>
+            <div class="form-actions">
+                <button class="outline-btn" data-close="" type="button">Hủy</button>
+                <button class="primary-btn" type="submit">Tạo nhân viên</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL CHI TIẾT SẢN PHẨM / ĐƠN HÀNG / KHÁCH HÀNG -->
+    <dialog class="modal" id="productDetailDialog">
+        <div class="modal-top">
+            <div><h2>Chi tiết sản phẩm</h2><p>Xem thông tin, chỉnh sửa hoặc ngưng bán sản phẩm.</p></div>
+            <button class="close-modal" data-close="">×</button>
+        </div>
+        <div class="modal-form" id="productDetailContent"></div>
+    </dialog>
+
+    <dialog class="modal" id="modal-order-detail">
+        <div class="modal-top">
+            <div><h2>Chi tiết đơn hàng</h2><p>Thông tin người nhận và sản phẩm đã mua.</p></div>
+            <button class="close-modal" data-close="">×</button>
+        </div>
+        <div class="modal-form" id="orderDetailContent"></div>
+    </dialog>
+
+    <dialog class="modal" id="modal-customer-detail">
+        <div class="modal-top">
+            <div><h2>Hồ sơ khách hàng</h2><p>Danh sách thú cưng và lịch sử mua sắm.</p></div>
+            <button class="close-modal" data-close="">×</button>
+        </div>
+        <div class="modal-form" id="customerDetailContent"></div>
+    </dialog>
+
+    <!-- MODAL CHỈNH SỬA THÔNG TIN KHÁCH HÀNG (ADMIN) -->
+    <dialog class="modal" id="modal-edit-customer">
+        <div class="modal-top">
+            <div><h2>Chỉnh sửa thông tin khách hàng</h2><p>Cập nhật họ tên, số điện thoại, email và địa chỉ vào MySQL.</p></div>
+            <button class="close-modal" data-close="">×</button>
+        </div>
+        <form class="modal-form" id="form-edit-customer">
+            <input id="ec-id" name="ma_khach_hang" type="hidden"/>
+            <div class="form-field">
+                <label for="ec-name">Họ và tên *</label>
+                <input id="ec-name" name="ho_ten" maxlength="120" required=""/>
+            </div>
+            <div class="form-grid">
+                <div class="form-field">
+                    <label for="ec-phone">Số điện thoại *</label>
+                    <input id="ec-phone" name="so_dien_thoai" type="tel" maxlength="15" required=""/>
+                </div>
+                <div class="form-field">
+                    <label for="ec-email">Email</label>
+                    <input id="ec-email" name="email" type="email" maxlength="150" placeholder="name@email.com"/>
+                </div>
+            </div>
+            <div class="form-field">
+                <label for="ec-address">Địa chỉ nhận hàng</label>
+                <textarea id="ec-address" name="dia_chi" rows="2" maxlength="255" placeholder="Số nhà, đường, quận/huyện, tỉnh/thành"></textarea>
+            </div>
+            <div class="form-actions">
+                <button class="outline-btn" data-close="" type="button">Hủy</button>
+                <button class="primary-btn" type="submit">Lưu thay đổi</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL XEM NỘI DUNG EMAIL ĐÃ GỬI -->
+    <dialog class="modal" id="modal-email-preview" style="width:min(94vw, 680px)">
+        <div class="modal-top">
+            <div><h2 id="emailPreviewTitle">Nội dung Email đã gửi</h2><p id="emailPreviewSub"></p></div>
+            <button class="close-modal" data-close="">×</button>
+        </div>
+        <div class="modal-form">
+            <iframe id="adminEmailIframe" sandbox="" style="width:100%;height:430px;border:1px solid #f0dfe8;border-radius:12px;background:#fff7fa" title="Xem trước email"></iframe>
+        </div>
+    </dialog>
+
+    <!-- MODAL CHỈNH SỬA THÔNG TIN CÁ NHÂN -->
+    <dialog class="modal" id="modal-edit-profile">
+        <div class="modal-top">
+            <div><h2>Chỉnh sửa thông tin</h2><p>Cập nhật họ tên, email và số điện thoại tài khoản của bạn.</p></div>
+            <button aria-label="Đóng" class="close-modal" data-close="">×</button>
+        </div>
+        <form class="modal-form" id="form-edit-profile">
+            <div class="form-field">
+                <label for="ep-name">Họ và tên *</label>
+                <input id="ep-name" maxlength="100" required=""/>
+            </div>
+            <div class="form-grid">
+                <div class="form-field">
+                    <label for="ep-email">Email *</label>
+                    <input id="ep-email" type="email" maxlength="150" required=""/>
+                </div>
+                <div class="form-field">
+                    <label for="ep-phone">Số điện thoại</label>
+                    <input id="ep-phone" type="tel" maxlength="15" placeholder="09xxxxxxxx"/>
+                </div>
+            </div>
+            <div class="modal-alert hide" id="editProfileError" role="alert"></div>
+            <div class="form-actions">
+                <button class="outline-btn" data-close="" type="button">Hủy</button>
+                <button class="primary-btn" type="submit"><i data-ico="save"></i> Lưu thay đổi</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL ĐỔI MẬT KHẨU -->
+    <dialog class="modal" id="modal-change-password">
+        <div class="modal-top">
+            <div><h2>Đổi mật khẩu</h2><p>Nhập mật khẩu hiện tại và mật khẩu mới (tối thiểu 6 ký tự).</p></div>
+            <button aria-label="Đóng" class="close-modal" data-close="">×</button>
+        </div>
+        <form class="modal-form" id="form-change-password">
+            <div class="form-field">
+                <label for="cp-old">Mật khẩu hiện tại *</label>
+                <input id="cp-old" type="password" required="" autocomplete="current-password" placeholder="••••••••"/>
+            </div>
+            <div class="form-field">
+                <label for="cp-new">Mật khẩu mới *</label>
+                <input id="cp-new" type="password" minlength="6" required="" autocomplete="new-password" placeholder="Tối thiểu 6 ký tự"/>
+            </div>
+            <div class="form-field">
+                <label for="cp-confirm">Xác nhận mật khẩu mới *</label>
+                <input id="cp-confirm" type="password" minlength="6" required="" autocomplete="new-password" placeholder="Nhập lại mật khẩu mới"/>
+            </div>
+            <div class="modal-alert hide" id="changePasswordError" role="alert"></div>
+            <div class="form-actions">
+                <button class="outline-btn" data-close="" type="button">Hủy</button>
+                <button class="primary-btn" type="submit"><i data-ico="lock"></i> Đổi mật khẩu</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL CHỌN PHÂN LOẠI SẢN PHẨM TẠI QUẦY (POS) -->
+    <dialog class="modal" id="modal-pos-variant">
+        <div class="modal-top">
+            <div><h2 id="posVarTitle">Chọn phân loại sản phẩm</h2><p id="posVarSub"></p></div>
+            <button aria-label="Đóng" class="close-modal" data-close="">×</button>
+        </div>
+        <form class="modal-form" id="form-pos-variant">
+            <div id="posVarGroups"></div>
+            <div class="form-grid">
+                <div class="form-field">
+                    <label for="posVarQty">Số lượng</label>
+                    <input id="posVarQty" type="number" min="1" value="1" required=""/>
+                </div>
+                <div class="form-field" style="justify-content:end">
+                    <label>Tạm tính</label>
+                    <strong id="posVarSubtotal" style="font-size:17px;color:var(--pink-dark);padding:8px 0">0 ₫</strong>
+                </div>
+            </div>
+            <div class="modal-alert hide" id="posVarError" role="alert"></div>
+            <div class="form-actions">
+                <button class="outline-btn" data-close="" type="button">Hủy</button>
+                <button class="primary-btn" type="submit"><i data-ico="plus"></i> Thêm vào hóa đơn</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL HÓA ĐƠN BÁN LẺ TẠI QUẦY (CÓ NÚT IN) -->
+    <dialog class="modal" id="modal-pos-receipt" style="width:min(94vw, 440px)">
+        <div class="modal-top">
+            <div><h2 id="posReceiptModalTitle">Hóa đơn bán hàng</h2><p id="posReceiptModalSub">Thanh toán thành công &amp; đã cập nhật tồn kho.</p></div>
+            <button aria-label="Đóng" class="close-modal" data-close="">×</button>
+        </div>
+        <div class="modal-form">
+            <div class="pos-receipt-paper" id="posReceiptBody"></div>
+            <div class="form-actions">
+                <button class="outline-btn" data-close="" type="button">Đóng</button>
+                <button class="primary-btn" id="posPrintBtn" type="button"><i data-ico="printer"></i> In hóa đơn</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- MODAL NHÂN VIÊN GỬI YÊU CẦU NHẬP KHO -->
+    <dialog class="modal" id="modal-import-request" style="width:min(94vw, 480px)">
+        <div class="modal-top">
+            <div><h2>Gửi yêu cầu nhập kho</h2><p>Đề xuất nhập bổ sung sản phẩm để Quản lý / Chủ cửa hàng duyệt.</p></div>
+            <button aria-label="Đóng" class="close-modal" data-close="">×</button>
+        </div>
+        <form class="modal-form" id="form-import-request">
+            <div class="form-field">
+                <label for="req-product">Sản phẩm cần nhập *</label>
+                <select id="req-product" required=""></select>
+                <small class="hint" id="req-stock-hint"></small>
+            </div>
+            <div class="form-field">
+                <label for="req-qty">Số lượng đề xuất nhập *</label>
+                <input id="req-qty" type="number" min="1" max="10000" value="10" required=""/>
+            </div>
+            <div class="form-field">
+                <label for="req-reason">Lý do / Ghi chú</label>
+                <textarea id="req-reason" rows="2" maxlength="250" placeholder="Ví dụ: Hàng bán chạy cuối tuần, tồn kho sắp hết..."></textarea>
+            </div>
+            <div class="modal-alert hide" id="importReqError" role="alert"></div>
+            <div class="form-actions">
+                <button class="outline-btn" data-close="" type="button">Hủy</button>
+                <button class="primary-btn" type="submit"><i data-ico="send"></i> Gửi yêu cầu</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL QUẢN LÝ LẬP PHIẾU NHẬP KHO (ADMIN ONLY) -->
+    <dialog class="modal" id="modal-import-receipt" style="width:min(95vw, 680px)">
+        <div class="modal-top">
+            <div><h2 id="irModalTitle">Lập phiếu nhập kho</h2><p id="irModalSub">Chọn nhà cung cấp và sản phẩm nhập — tồn kho sẽ tự động cộng sau khi lưu.</p></div>
+            <button aria-label="Đóng" class="close-modal" data-close="">×</button>
+        </div>
+        <form class="modal-form" id="form-import-receipt">
+            <input type="hidden" id="ir-request-id" value=""/>
+            <div class="form-field">
+                <label for="ir-supplier">Nhà cung cấp *</label>
+                <select id="ir-supplier" required=""></select>
+            </div>
+            <div class="form-field">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+                    <label style="margin:0">Danh sách sản phẩm nhập *</label>
+                    <button type="button" class="outline-btn small-btn" id="irAddRowBtn"><i data-ico="plus"></i> Thêm dòng</button>
+                </div>
+                <div class="ir-items-list" id="ir-items-list"></div>
+            </div>
+            <div class="form-field">
+                <label for="ir-note">Ghi chú phiếu nhập</label>
+                <input id="ir-note" maxlength="250" placeholder="Ví dụ: Nhập đợt tháng 11, đã kiểm đếm đủ..."/>
+            </div>
+            <div class="ir-total-bar">
+                <span>Tổng tiền nhập hàng</span>
+                <strong id="irTotalAmount">0 ₫</strong>
+            </div>
+            <div class="modal-alert hide" id="importReceiptError" role="alert"></div>
+            <div class="form-actions">
+                <button class="outline-btn" data-close="" type="button">Hủy</button>
+                <button class="primary-btn" type="submit"><i data-ico="check"></i> Xác nhận nhập kho</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL THÊM / SỬA NHÀ CUNG CẤP (ADMIN ONLY) -->
+    <dialog class="modal" id="modal-supplier" style="width:min(94vw, 520px)">
+        <div class="modal-top">
+            <div><h2 id="supModalTitle">Thêm nhà cung cấp</h2><p>Lưu thông tin đối tác cung cấp hàng hóa cho cửa hàng.</p></div>
+            <button aria-label="Đóng" class="close-modal" data-close="">×</button>
+        </div>
+        <form class="modal-form" id="form-supplier">
+            <div class="form-field">
+                <label for="sup-name">Tên nhà cung cấp *</label>
+                <input id="sup-name" maxlength="150" required="" placeholder="Ví dụ: Công ty TNHH Royal Canin Việt Nam"/>
+            </div>
+            <div class="form-grid">
+                <div class="form-field"><label for="sup-phone">Số điện thoại *</label><input id="sup-phone" type="tel" maxlength="20" required="" placeholder="028 3822 1100"/></div>
+                <div class="form-field"><label for="sup-contact">Người liên hệ</label><input id="sup-contact" maxlength="120" placeholder="Họ tên đại diện"/></div>
+            </div>
+            <div class="form-grid">
+                <div class="form-field"><label for="sup-email">Email</label><input id="sup-email" type="email" maxlength="150" placeholder="sales@nhacungcap.vn"/></div>
+                <div class="form-field">
+                    <label for="sup-status">Trạng thái</label>
+                    <select id="sup-status">
+                        <option value="active">Đang hợp tác</option>
+                        <option value="inactive">Tạm ngưng</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-field"><label for="sup-address">Địa chỉ</label><input id="sup-address" maxlength="255" placeholder="Địa chỉ kho / văn phòng nhà cung cấp"/></div>
+            <div class="form-field"><label for="sup-note">Ghi chú mặt hàng cung cấp</label><input id="sup-note" maxlength="255" placeholder="Ví dụ: Chuyên thức ăn hạt, pate, cát vệ sinh..."/></div>
+            <div class="modal-alert hide" id="supplierError" role="alert"></div>
+            <div class="form-actions">
+                <button class="outline-btn" data-close="" type="button">Hủy</button>
+                <button class="primary-btn" type="submit"><i data-ico="save"></i> Lưu nhà cung cấp</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="assets/js/icons.js?v=20261124f"></script>
+    <script src="assets/js/api.js?v=20261124b"></script>
+    <script src="assets/js/admin.js?v=20261124h"></script>
+</body>
+</html>

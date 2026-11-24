@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+    <meta content="#fff8fa" name="theme-color"/>
+    <title>Góc nhỏ có em | Cửa hàng thú cưng &amp; Trợ lý Pawly AI</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png"/>
+    <link rel="stylesheet" href="assets/css/customer.css?v=20261123c"/>
+</head>
+<body>
+    <div class="announcement">
+        Góc nhỏ có em — Nâng niu từng khoảnh khắc bên bé cưng · Tư vấn 24/7 cùng Pawly AI
+    </div>
+
+    <header class="header">
+        <div class="container head-inner">
+            <a aria-label="Góc nhỏ có em trang chủ" class="logo" href="#home" id="logoHome">
+                <img src="assets/images/logo.png" alt="Logo Góc nhỏ có em" class="logo-img"/>
+                <span>
+                    <span class="logo-text">Góc nhỏ <span>có em</span></span>
+                    <span class="logo-sub">PET SHOP &amp; AI CARE</span>
+                </span>
+            </a>
+
+            <nav aria-label="Điều hướng khách hàng" class="nav" id="mainNav">
+                <button class="active" data-page="home"><i data-ico="home"></i> Trang chủ</button>
+                <button data-page="shop"><i data-ico="shop"></i> Cửa hàng</button>
+                <button data-page="services"><i data-ico="spa"></i> Dịch vụ</button>
+                <button data-page="orders"><i data-ico="orders"></i> Đơn hàng</button>
+                <button data-page="appointments"><i data-ico="calendar"></i> Lịch hẹn</button>
+                <button data-page="profile"><i data-ico="account"></i> Hồ sơ</button>
+                <button id="navAI"><i data-ico="sparkles"></i> Pawly AI</button>
+            </nav>
+
+            <div class="head-right">
+                <a class="customer-link hidden hide-mobile" href="index.html" id="adminLink" title="Chuyển sang giao diện quản lý"><i data-ico="settings"></i> <span>Quản trị</span></a>
+                <a class="customer-link" href="auth.html" id="authLink"><i data-ico="login"></i> Đăng nhập</a>
+                <button class="customer-link subtle hidden hide-mobile" id="userBadge" data-page="profile" type="button" title="Xem hồ sơ & thú cưng"></button>
+                <button aria-label="Thông báo" class="head-action hidden" id="emailInboxBtn" type="button" title="Thông báo">
+                    <i data-ico="bell" data-ico-cls="m-ico-md"></i>
+                    <span class="cart-count hidden" id="emailUnreadBadge">0</span>
+                </button>
+                <button aria-label="Mở giỏ hàng" class="head-action" id="cartOpen" title="Giỏ hàng">
+                    <i data-ico="bag" data-ico-cls="m-ico-md"></i>
+                    <span class="cart-count" id="cartBadge">0</span>
+                </button>
+                <button aria-label="Đăng xuất" class="head-action hidden" id="logoutBtn" type="button" title="Đăng xuất">
+                    <i data-ico="logout" data-ico-cls="m-ico-md"></i>
+                </button>
+                <button aria-label="Mở điều hướng" class="head-action mobile-menu" id="mobileToggle"><i data-ico="menu" data-ico-cls="m-ico-md"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- TRANG CHỦ -->
+        <section aria-label="Trang chủ khách hàng" class="page active" id="page-home">
+            <div class="hero">
+                <div class="hero-copy">
+                    <div class="overline">✦ CHÀO MỪNG ĐẾN VỚI GÓC NHỎ CÓ EM</div>
+                    <h1>
+                        Thế giới nhỏ,<br/>
+                        <em>yêu thương to!</em>
+                    </h1>
+                    <p>
+                        Thức ăn ngon, đồ chơi xinh, spa thư giãn và trợ lý Pawly AI tư vấn chọn đồ chuẩn xác cho người bạn bốn chân của bạn.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" data-go="shop"><i data-ico="shop"></i> Mua sắm ngay</button>
+                        <button class="btn btn-light" data-go="services"><i data-ico="spa"></i> Đặt lịch spa</button>
+                    </div>
+                </div>
+                <div class="hero-art hero-photo-frame">
+                    <img src="assets/images/hero_pets.jpg" alt="Cún con và mèo con tại Góc nhỏ có em"/>
+                </div>
+                <span class="hero-sticker"><i data-ico="heart"></i> Happy pets, happy days!</span>
+            </div>
+
+            <div class="service-bar">
+                <div class="service-bar-item">
+                    <span class="ico ico-modern"><i data-ico="promo" data-ico-cls="m-ico-lg"></i></span>
+                    <span><b>Chính hãng an toàn</b><small>Tuyển chọn kỹ cho bé</small></span>
+                </div>
+                <div class="service-bar-item">
+                    <span class="ico ico-modern"><i data-ico="pet" data-ico-cls="m-ico-lg"></i></span>
+                    <span><b>Sản phẩm đa dạng</b><small>Đồ dùng cho chó &amp; mèo</small></span>
+                </div>
+                <div class="service-bar-item">
+                    <span class="ico ico-modern"><i data-ico="booking" data-ico-cls="m-ico-lg"></i></span>
+                    <span><b>Đặt lịch Spa nhanh</b><small>Chăm sóc nhẹ nhàng</small></span>
+                </div>
+                <div class="service-bar-item">
+                    <span class="ico ico-modern"><i data-ico="sparkles" data-ico-cls="m-ico-lg"></i></span>
+                    <span><b>Pawly AI hỗ trợ</b><small>Gợi ý theo kho thực tế</small></span>
+                </div>
+            </div>
+
+            <section aria-label="Danh mục sản phẩm" class="section">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">KHÁM PHÁ GÓC NHỎ CÓ EM</span><br>
+                        <h2 class="title-with-ico">Danh mục yêu thích </h2>
+                        <p>Chọn những món đồ nhỏ xinh phù hợp nhất cho bé.</p>
+                    </div>
+                </div>
+                <div class="categories" id="homeCategories"></div>
+            </section>
+
+            <section class="section">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">DÀNH RIÊNG CHO BÉ</span><br>
+                        <h2 class="title-with-ico">Sản phẩm nổi bật </i></h2>
+                        <p>Nhấn vào từng sản phẩm để xem mô tả chi tiết và đánh giá từ khách hàng.</p>
+                    </div>
+                    <button class="text-link" data-go="shop">Xem tất cả</button>
+                </div>
+                <div class="product-grid" id="featuredProducts"></div>
+            </section>
+
+            <div class="feature-banner">
+                <div>
+                    <span class="badge"><i data-ico="sparkles"></i> PAWLY AI GỢI Ý THÔNG MINH</span>
+                    <h3>Chưa biết chọn gì cho bé?</h3>
+                    <p>Hãy trò chuyện với Pawly AI để nhận gợi ý sản phẩm đang còn hàng và mẹo chăm sóc thú cưng an toàn.</p>
+                    <button class="btn btn-primary" id="heroAI" style="margin-top:16px"><i data-ico="chat"></i> Hỏi Pawly AI</button>
+                </div>
+                <div class="feature-illustration">
+                    <img src="assets/images/ai_mascot.jpg" alt="Trợ lý Pawly AI"/>
+                </div>
+            </div>
+        </section>
+
+        <!-- CỬA HÀNG -->
+        <section aria-label="Mua sắm" class="page" id="page-shop">
+            <div class="page-top">
+                <div class="section-kicker">GÓC NHỎ CÓ EM PET SHOP</div>
+                <h1 class="section-title title-with-ico">Góc mua sắm của bé <i data-ico="shop" data-ico-cls="m-ico-title"></i></h1>
+                <p class="section-desc">Tìm kiếm và lọc sản phẩm theo danh mục, loại thú cưng và khoảng giá.</p>
+            </div>
+
+            <div class="shop-toolbar">
+                <div class="filter-tabs" id="shopFilters"></div>
+                <div class="shop-controls">
+                    <select aria-label="Lọc loại thú cưng" class="filter-select" id="petFilter">
+                        <option value="all">Mọi thú cưng</option>
+                        <option value="cho">Dành cho Chó</option>
+                        <option value="meo">Dành cho Mèo</option>
+                        <option value="ca_hai">Dùng chung Chó &amp; Mèo</option>
+                    </select>
+                    <select aria-label="Lọc khoảng giá" class="filter-select" id="priceFilter">
+                        <option value="all">Mọi mức giá</option>
+                        <option value="under100">Dưới 100.000 ₫</option>
+                        <option value="100to250">100.000 ₫ – 250.000 ₫</option>
+                        <option value="over250">Trên 250.000 ₫</option>
+                    </select>
+                    <label class="search">
+                        <i data-ico="search"></i>
+                        <input aria-label="Tìm sản phẩm" id="shopSearch" placeholder="Tìm sản phẩm yêu thích..."/>
+                    </label>
+                </div>
+            </div>
+
+            <div class="product-grid" id="shopProducts"></div>
+        </section>
+
+        <!-- DỊCH VỤ SPA & TIÊM PHÒNG -->
+        <section aria-label="Dịch vụ chăm sóc và tiêm phòng" class="page" id="page-services">
+            <div class="page-top">
+                <div class="section-kicker">GÓC NHỎ CÓ EM SPA &amp; THÚ Y</div>
+                <h1 class="section-title title-with-ico">Spa &amp; Tiêm phòng cho bé <i data-ico="spa" data-ico-cls="m-ico-title"></i></h1>
+            </div>
+
+            <div class="services-grid" id="servicesGrid" style="margin-top:25px"></div>
+        </section>
+
+        <!-- ĐƠN HÀNG & LỊCH HẸN -->
+        <section aria-label="Đơn hàng" class="page" id="page-orders">
+            <div class="page-top">
+                <div class="section-kicker">THEO DÕI ĐƠN HÀNG</div>
+                <h1 class="section-title title-with-ico">Đơn hàng <i data-ico="orders" data-ico-cls="m-ico-title"></i></h1>
+            </div>
+
+            <!-- Giao diện tra cứu cho khách chưa đăng nhập -->
+            <div class="orders-wrap" id="guestOrdersLayout">
+                <div class="panel" id="guestLookupPanel">
+                    <h3><span class="title-with-ico"><i data-ico="mail"></i> Tra cứu đơn hàng</span></h3>
+                    <p>Nhập họ tên và số điện thoại đã dùng khi đặt hàng, hoặc <a href="auth.html" style="color:var(--pink-deep);font-weight:800">đăng nhập tài khoản</a> để xem tự động.</p>
+                    <form id="lookupForm">
+                        <div class="field">
+                            <label for="lookupName">Họ tên khách hàng</label>
+                            <input autocomplete="name" id="lookupName" maxlength="70" placeholder="Ví dụ: Nguyễn Minh Anh" required=""/>
+                        </div>
+                        <div class="field">
+                            <label for="lookupPhone">Số điện thoại</label>
+                            <input autocomplete="tel" id="lookupPhone" inputmode="tel" maxlength="15" placeholder="09xxxxxxxx" required="" type="tel"/>
+                        </div>
+                        <button class="btn btn-primary full" type="submit">Tra cứu đơn hàng</button>
+                    </form>
+                </div>
+
+                <div class="panel">
+                    <h3><span class="title-with-ico"><i data-ico="bag"></i> Kết quả tra cứu đơn hàng</span></h3>
+                    <div id="guestOrdersResult">
+                        <div class="empty">
+                            <i data-ico="orders" data-ico-cls="m-ico-empty"></i>
+                            <b>Đang chờ bạn tra cứu</b>
+                            Đăng nhập hoặc nhập thông tin bên trái để xem đơn hàng nhé!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Giao diện đầy đủ cho khách hàng đã đăng nhập -->
+            <div class="orders-member-single hidden" id="memberOrdersLayout">
+                <div class="panel">
+                    <h3>
+                        <span class="title-with-ico"><i data-ico="bag"></i> Đơn hàng</span>
+                        <button class="btn btn-outline btn-sm" data-go="shop" type="button">Tiếp tục mua sắm</button>
+                    </h3>
+                    <div class="order-tabs" id="orderTabs" role="tablist" aria-label="Phân loại đơn hàng">
+                        <button type="button" class="order-tab active" data-order-tab="all" role="tab">Tất cả <span class="tab-count" id="ordCountAll">0</span></button>
+                        <button type="button" class="order-tab" data-order-tab="awaiting_payment" role="tab">Chờ thanh toán <span class="tab-count" id="ordCountPay">0</span></button>
+                        <button type="button" class="order-tab" data-order-tab="awaiting_confirm" role="tab">Chờ xác nhận <span class="tab-count" id="ordCountConfirm">0</span></button>
+                        <button type="button" class="order-tab" data-order-tab="to_ship" role="tab">Chờ giao hàng <span class="tab-count" id="ordCountShip">0</span></button>
+                        <button type="button" class="order-tab" data-order-tab="delivered" role="tab">Đã giao <span class="tab-count" id="ordCountDelivered">0</span></button>
+                        <button type="button" class="order-tab" data-order-tab="to_review" role="tab">Cần đánh giá <span class="tab-count" id="ordCountReview">0</span></button>
+                        <button type="button" class="order-tab" data-order-tab="returned" role="tab">Trả hàng <span class="tab-count" id="ordCountReturned">0</span></button>
+                        <button type="button" class="order-tab" data-order-tab="cancelled" role="tab">Đã hủy <span class="tab-count" id="ordCountCancelled">0</span></button>
+                    </div>
+                    <div id="myOrders"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LỊCH HẸN CỦA BẠN (TÁCH RIÊNG) -->
+        <section aria-label="Lịch hẹn của bạn" class="page" id="page-appointments">
+            <div class="page-top">
+                <div class="section-kicker">THEO DÕI LỊCH HẸN</div>
+                <h1 class="section-title title-with-ico">Lịch hẹn của bạn <i data-ico="calendar" data-ico-cls="m-ico-title"></i></h1>
+            </div>
+
+            <div class="panel profile-guest-card" id="appointmentsGuestNotice">
+                <i data-ico="calendar" data-ico-cls="m-ico-empty"></i>
+                <h3>Đăng nhập để xem lịch hẹn của bạn</h3>
+                <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px">
+                    <a class="btn btn-primary" href="auth.html?next=customer.html%23appointments"><i data-ico="login"></i> Đăng nhập ngay</a>
+                    <a class="btn btn-outline" href="auth.html?mode=register&next=customer.html%23appointments"><i data-ico="account"></i> Tạo tài khoản mới</a>
+                </div>
+            </div>
+
+            <div class="appointments-member-single hidden" id="memberAppointmentsLayout">
+                <div class="panel" id="memberAppointmentsWrap">
+                    <h3>
+                        <span class="title-with-ico"><i data-ico="calendar"></i> Lịch hẹn của bạn</span>
+                        <button class="btn btn-outline btn-sm" data-go="services" type="button">+ Đặt lịch ngay</button>
+                    </h3>
+                    <div id="myAppointments"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HỒ SƠ CÁ NHÂN & THÚ CƯNG -->
+        <section aria-label="Hồ sơ cá nhân và thú cưng" class="page" id="page-profile">
+            <div class="page-top">
+                <h1 class="section-title title-with-ico">Hồ sơ cá nhân <i data-ico="account" data-ico-cls="m-ico-title"></i></h1>
+            </div>
+
+            <!-- Khối nhắc đăng nhập nếu chưa đăng nhập -->
+            <div class="panel profile-guest-card" id="profileGuestNotice">
+                <i data-ico="account" data-ico-cls="m-ico-empty"></i>
+                <h3>Đăng nhập để xem hồ sơ &amp; thú cưng của bạn</h3>
+                <p>Lưu thông tin giao hàng và hồ sơ bé cưng giúp bạn đặt hàng và đặt lịch Spa chỉ trong vài giây.</p>
+                <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+                    <a class="btn btn-primary" href="auth.html?next=customer.html%23profile"><i data-ico="login"></i> Đăng nhập ngay</a>
+                    <a class="btn btn-outline" href="auth.html?mode=register&next=customer.html%23profile"><i data-ico="account"></i> Tạo tài khoản mới</a>
+                </div>
+            </div>
+
+            <!-- Nội dung Hồ sơ cá nhân & Thú cưng khi đã đăng nhập -->
+            <div class="member-profile-wrap hidden" id="memberProfileLayout">
+                <div class="member-account-grid">
+                    <!-- CỘT TRÁI: THÔNG TIN CÁ NHÂN & ẢNH ĐẠI DIỆN -->
+                    <form class="profile-card" id="memberProfileForm">
+                        <div class="profile-card-head">
+                            <span class="profile-card-ico"><i data-ico="account"></i></span>
+                            <h2>Thông tin cá nhân</h2>
+                        </div>
+                        <div class="profile-card-body">
+                            <div class="field">
+                                <label>Ảnh đại diện</label>
+                                <div class="profile-media-box">
+                                    <div class="profile-avatar-preview" id="memberAvatarPreview">KH</div>
+                                    <div class="profile-media-controls">
+                                        <div class="profile-identity">
+                                            <strong id="memberName">Thành viên</strong>
+                                            <small id="memberRoleSub">Khách hàng · Góc nhỏ có em</small>
+                                        </div>
+                                        <input type="file" id="memberAvatarFile" accept="image/*" class="hidden"/>
+                                        <div class="profile-media-btns">
+                                            <label for="memberAvatarFile" class="btn btn-outline btn-sm profile-media-pick"><i data-ico="download"></i> Đổi ảnh</label>
+                                            <button type="button" class="btn btn-danger-outline btn-sm hidden" id="clearMemberAvatarBtn">Xóa ảnh</button>
+                                        </div>
+                                        <small class="profile-hint">JPG, PNG, WEBP tối đa 3MB.</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-grid">
+                                <div class="field"><label for="profName">Họ và tên *</label><input id="profName" maxlength="100" required=""/></div>
+                                <div class="field"><label for="profEmail">Email *</label><input id="profEmail" type="email" maxlength="150" required=""/></div>
+                            </div>
+                            <div class="form-grid">
+                                <div class="field"><label for="profPhone">Số điện thoại</label><input id="profPhone" type="tel" maxlength="15" placeholder="0901 234 567"/></div>
+                                <div class="field">
+                                    <label>Vai trò</label>
+                                    <div class="role-readonly-box" aria-label="Vai trò tài khoản (không thể chỉnh sửa)">
+                                        <i data-ico="lock"></i>
+                                        <span id="memberRoleDisplay">Khách hàng</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="profAddress">Địa chỉ nhận hàng</label>
+                                <input id="profAddress" maxlength="255" placeholder="Số nhà, đường, quận/huyện, tỉnh/thành"/>
+                            </div>
+                            <div class="profile-card-foot split">
+                                <button class="btn btn-danger-outline btn-sm hidden" id="openDeleteAccountBtn" type="button"><i data-ico="trash"></i> Xóa tài khoản</button>
+                                <button class="btn btn-primary profile-save-btn" type="submit"><i data-ico="save"></i> Lưu thông tin</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- CỘT PHẢI: ĐỔI MẬT KHẨU (TÁCH RIÊNG + XÁC NHẬN OTP EMAIL) -->
+                    <form class="profile-card" id="memberPasswordForm">
+                        <div class="profile-card-head">
+                            <span class="profile-card-ico"><i data-ico="lock"></i></span>
+                            <h2>Đổi mật khẩu</h2>
+                        </div>
+                        <div class="profile-card-body">
+                            <div class="field">
+                                <label for="profOldPass">Mật khẩu hiện tại *</label>
+                                <input id="profOldPass" type="password" required="" autocomplete="current-password" placeholder="Nhập mật khẩu hiện tại"/>
+                            </div>
+                            <div class="field">
+                                <label for="profNewPass">Mật khẩu mới *</label>
+                                <input id="profNewPass" type="password" required="" minlength="6" autocomplete="new-password" placeholder="Tối thiểu 6 ký tự"/>
+                            </div>
+                            <div class="field">
+                                <label for="profConfirmPass">Nhập lại mật khẩu mới *</label>
+                                <input id="profConfirmPass" type="password" required="" minlength="6" autocomplete="new-password" placeholder="Nhập lại mật khẩu mới"/>
+                            </div>
+                            <label class="profile-check-row" for="toggleProfPass">
+                                <input id="toggleProfPass" type="checkbox"/>
+                                <span>Hiển thị mật khẩu</span>
+                            </label>
+
+                            <!-- BƯỚC 2: XÁC NHẬN MÃ OTP GỬI VỀ EMAIL -->
+                            <div class="profile-otp-panel hidden" id="profOtpPanel">
+                                <div class="profile-otp-head">
+                                    <i data-ico="mail"></i>
+                                    <div>
+                                        <strong>Xác nhận qua Email</strong>
+                                        <small id="profOtpNote">Mã xác nhận 6 chữ số đã được gửi tới email của bạn.</small>
+                                    </div>
+                                </div>
+                                <div class="profile-otp-row">
+                                    <input id="profOtpCode" type="text" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="Nhập mã 6 số"/>
+                                    <button type="button" class="btn btn-outline btn-sm" id="profOtpResendBtn" disabled>Gửi lại (30s)</button>
+                                </div>
+                                <div class="profile-otp-foot">
+                                    <button type="button" class="profile-link-btn" id="profOtpCancelBtn">Nhập lại mật khẩu</button>
+                                    <button type="button" class="profile-link-btn hidden" id="profOtpOpenMailBtn">Mở Hộp thư Email</button>
+                                </div>
+                            </div>
+
+                            <div class="modal-alert hidden" id="profPassError" role="alert"></div>
+                            <div class="profile-card-foot">
+                                <button class="btn btn-primary profile-save-btn" id="profPassSubmitBtn" type="submit"><i data-ico="lock"></i> Đổi mật khẩu</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- HỒ SƠ THÚ CƯNG CỦA BẠN -->
+                <div class="panel profile-pets-card">
+                    <div class="profile-pets-top">
+                        <div>
+                            <h3 style="margin:0"><span class="title-with-ico"><i data-ico="pet"></i> Hồ sơ thú cưng của bạn</span></h3>
+                            <p style="margin:6px 0 0">Lưu sẵn thông tin các bé để khi đặt lịch Spa chỉ cần 1 chạm chọn bé!</p>
+                        </div>
+                        <div class="profile-pets-right">
+                            <div class="profile-mini-stats">
+                                <span><b id="statOrdersCount">0</b> Đơn hàng</span>
+                                <span><b id="statApptsCount">0</b> Lịch hẹn</span>
+                                <span><b id="statPetsCount">0</b> Thú cưng</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm" id="openAddPetBtn" type="button"><i data-ico="plus"></i> Thêm bé cưng</button>
+                        </div>
+                    </div>
+                    <div class="pet-chip-list" id="myPetsList"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div>
+                <div class="logo" style="margin-bottom:10px">
+                    <img src="assets/images/logo.png" alt="Logo Góc nhỏ có em" class="logo-img footer-logo-img"/>
+                    <span class="logo-text" style="font-size:19px">Góc nhỏ <span>có em</span></span>
+                </div>
+                <div class="footer-info">
+                    Cùng bạn chăm sóc những người bạn bốn chân<br/>
+                    Website Cửa hàng thú cưng tích hợp AI 
+                </div>
+            </div>
+            <div class="footer-links">
+                <a data-footer-page="shop" href="#shop">Sản phẩm</a>
+                <a data-footer-page="services" href="#services">Dịch vụ </a>
+                <a data-footer-page="orders" href="#orders">Đơn hàng</a>
+                <a data-footer-page="appointments" href="#appointments">Lịch hẹn</a>
+                <a data-footer-page="profile" href="#profile">Hồ sơ &amp; Bé cưng</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GIỎ HÀNG DRAWER -->
+    <div aria-hidden="true" class="overlay" id="overlay"></div>
+    <aside aria-hidden="true" aria-label="Giỏ hàng" aria-modal="true" class="cart-panel" id="cartPanel" role="dialog">
+        <div class="drawer-head">
+            <h2 class="title-with-ico"><i data-ico="bag" data-ico-cls="m-ico-md"></i> <span id="cartTitle">Giỏ hàng (0)</span></h2>
+            <button aria-label="Đóng giỏ hàng" class="close" id="cartClose">×</button>
+        </div>
+        <div class="cart-toolbar hidden" id="cartToolbar">
+            <label class="cart-select-all">
+                <input type="checkbox" id="cartSelectAll"/>
+                <span id="cartSelectAllLabel">Chọn tất cả</span>
+            </label>
+            <button type="button" class="cart-bulk-del" id="cartDeleteSelectedBtn" disabled>
+                <i data-ico="trash"></i> <span id="cartDeleteSelectedLabel">Xóa đã chọn</span>
+            </button>
+        </div>
+        <div class="cart-contents" id="cartContents"></div>
+        <div class="drawer-bottom">
+            <div class="total-line">
+                <span id="cartTotalLabel">Tạm tính (0 sản phẩm)</span>
+                <strong id="cartTotal">0 ₫</strong>
+            </div>
+            <button class="btn btn-primary full" id="checkoutOpen">Thanh toán</button>
+            <small>Kiểm tra tồn kho tự động &amp; hỗ trợ thanh toán khi nhận hàng (COD)</small>
+        </div>
+    </aside>
+
+    <!-- MODAL CHI TIẾT SẢN PHẨM & ĐÁNH GIÁ -->
+    <dialog id="productDetailDialog">
+        <div class="modal-body">
+            <div class="modal-head">
+                <div>
+                    <h2>Chi tiết sản phẩm</h2>
+                    <p>Thông tin sản phẩm &amp; đánh giá từ cộng đồng Góc nhỏ có em.</p>
+                </div>
+                <button aria-label="Đóng" class="close" data-close-dialog="" type="button">×</button>
+            </div>
+            <div id="productDetailBody"></div>
+        </div>
+    </dialog>
+
+    <!-- MODAL CHỌN PHÂN LOẠI SẢN PHẨM (SIZE, MÀU SẮC, KHỐI LƯỢNG, HƯƠNG VỊ...) TRƯỚC KHI THÊM GIỎ -->
+    <dialog id="variantDialog">
+        <form class="modal-body" id="variantForm">
+            <div class="modal-head">
+                <div>
+                    <h2 id="variantModalTitle">Chọn phân loại sản phẩm</h2>
+                    <p id="variantModalSubtitle">Hãy chọn size, màu sắc hoặc quy cách phù hợp cho bé trước khi thêm vào giỏ hàng.</p>
+                </div>
+                <button aria-label="Đóng" class="close" data-close-dialog="" type="button">×</button>
+            </div>
+            <div class="booking-service-card variant-product-card" id="variantProductCard"></div>
+            <div id="variantOptionsContainer"></div>
+            <div class="variant-qty-row">
+                <div>
+                    <strong style="font-size:12.5px;color:var(--ink)">Số lượng</strong>
+                    <small id="variantStockHint" style="display:block;font-size:11px;color:#9b8a9c"></small>
+                </div>
+                <div class="variant-qty-ctrl">
+                    <button type="button" id="variantQtyMinus" aria-label="Giảm số lượng">−</button>
+                    <input type="number" id="variantQty" min="1" value="1" aria-label="Số lượng"/>
+                    <button type="button" id="variantQtyPlus" aria-label="Tăng số lượng">+</button>
+                </div>
+                <div class="variant-subtotal">
+                    <small>Tạm tính</small>
+                    <strong id="variantSubtotal">0 ₫</strong>
+                </div>
+            </div>
+            <div class="modal-alert hidden" id="variantError" role="alert"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" data-close-dialog="" type="button">Hủy</button>
+                <button class="btn btn-primary" id="variantAddBtn" type="submit">Thêm vào giỏ hàng</button>
+                <button class="btn btn-primary hidden" id="variantBuyNowBtn" type="button">Mua ngay</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL ĐẶT HÀNG & THANH TOÁN -->
+    <dialog id="checkoutDialog" class="checkout-dialog">
+        <form class="modal-body" id="checkoutForm">
+            <div class="modal-head">
+                <div>
+                    <h2>Thông tin đặt hàng</h2>
+                    <p>Kiểm tra thông tin nhận hàng, sản phẩm, vận chuyển và thanh toán trước khi xác nhận.</p>
+                </div>
+                <button aria-label="Đóng" class="close" data-close-dialog="" type="button">×</button>
+            </div>
+
+            <!-- 1. THÔNG TIN KHÁCH HÀNG -->
+            <div class="checkout-section">
+                <div class="checkout-section-title">1. Thông tin khách hàng</div>
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="checkoutName">Họ và tên *</label>
+                        <input autocomplete="name" id="checkoutName" maxlength="70" required="" placeholder="Tên người nhận"/>
+                    </div>
+                    <div class="field">
+                        <label for="checkoutPhone">Số điện thoại *</label>
+                        <input autocomplete="tel" id="checkoutPhone" maxlength="15" minlength="9" required="" type="tel" placeholder="09xxxxxxxx"/>
+                    </div>
+                </div>
+                <div class="field" style="margin-bottom:0">
+                    <label for="checkoutAddress">Địa chỉ nhận hàng *</label>
+                    <textarea id="checkoutAddress" maxlength="255" required="" rows="2" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành"></textarea>
+                </div>
+            </div>
+
+            <!-- 2. THÔNG TIN SẢN PHẨM -->
+            <div class="checkout-section">
+                <div class="checkout-section-title">2. Thông tin sản phẩm (<span id="checkoutItemCount">0</span>)</div>
+                <div class="checkout-items-list" id="checkoutItemsList"></div>
+            </div>
+
+            <!-- 3. PHƯƠNG THỨC VẬN CHUYỂN -->
+            <div class="checkout-section">
+                <div class="checkout-section-title">3. Phương thức vận chuyển</div>
+                <div class="choice-grid" id="checkoutShippingWrap">
+                    <label class="choice-card active">
+                        <input type="radio" name="phuong_thuc_van_chuyen" value="standard" checked/>
+                        <div class="choice-body">
+                            <strong>Giao hàng thường</strong>
+                            <small>Dự kiến 2–4 ngày làm việc · Miễn phí đơn từ 500k</small>
+                        </div>
+                        <span class="choice-fee" id="shipFeeStandard">20.000 ₫</span>
+                    </label>
+                    <label class="choice-card">
+                        <input type="radio" name="phuong_thuc_van_chuyen" value="express"/>
+                        <div class="choice-body">
+                            <strong>Giao hàng nhanh</strong>
+                            <small>Ưu tiên giao nhanh trong 2–4 giờ / trong ngày</small>
+                        </div>
+                        <span class="choice-fee">35.000 ₫</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 4. PHƯƠNG THỨC THANH TOÁN -->
+            <div class="checkout-section">
+                <div class="checkout-section-title">4. Phương thức thanh toán</div>
+                <div class="choice-grid" id="checkoutPaymentWrap">
+                    <label class="choice-card active">
+                        <input type="radio" name="phuong_thuc" value="cod" checked/>
+                        <div class="choice-body">
+                            <strong>Thanh toán khi nhận được hàng (COD)</strong>
+                            <small>Kiểm tra hàng và thanh toán trực tiếp cho shipper</small>
+                        </div>
+                    </label>
+                    <label class="choice-card">
+                        <input type="radio" name="phuong_thuc" value="bank_transfer"/>
+                        <div class="choice-body">
+                            <strong>Thanh toán trước qua thẻ / mã QR</strong>
+                            <small>Quét mã QR ngân hàng nhanh chóng, không mất phí</small>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- KHUNG MÃ QR THANH TOÁN (HIỆN KHI CHỌN THANH TOÁN QUA QR) -->
+                <div class="qr-pay-box hidden" id="checkoutQrBox">
+                    <div class="qr-code-frame js-store-qr-frame" aria-label="Mã QR thanh toán">
+                        <svg viewBox="0 0 120 120" width="118" height="118" role="img" aria-label="QR Góc nhỏ có em">
+                            <rect width="120" height="120" rx="10" fill="#ffffff"/>
+                            <rect x="8" y="8" width="28" height="28" rx="4" fill="none" stroke="#423444" stroke-width="4"/>
+                            <rect x="15" y="15" width="14" height="14" rx="2" fill="#df5889"/>
+                            <rect x="84" y="8" width="28" height="28" rx="4" fill="none" stroke="#423444" stroke-width="4"/>
+                            <rect x="91" y="15" width="14" height="14" rx="2" fill="#df5889"/>
+                            <rect x="8" y="84" width="28" height="28" rx="4" fill="none" stroke="#423444" stroke-width="4"/>
+                            <rect x="15" y="91" width="14" height="14" rx="2" fill="#df5889"/>
+                            <g fill="#423444">
+                                <rect x="44" y="10" width="6" height="6"/><rect x="56" y="10" width="6" height="12"/><rect x="68" y="10" width="6" height="6"/>
+                                <rect x="44" y="22" width="12" height="6"/><rect x="68" y="22" width="6" height="12"/>
+                                <rect x="10" y="44" width="12" height="6"/><rect x="28" y="44" width="6" height="12"/><rect x="44" y="44" width="12" height="6"/>
+                                <rect x="68" y="44" width="12" height="6"/><rect x="86" y="44" width="6" height="12"/><rect x="98" y="44" width="12" height="6"/>
+                                <rect x="10" y="56" width="6" height="12"/><rect x="22" y="62" width="12" height="6"/><rect x="44" y="56" width="6" height="12"/>
+                                <rect x="56" y="56" width="12" height="12" fill="#df5889"/><rect x="74" y="56" width="6" height="12"/><rect x="98" y="56" width="12" height="6"/>
+                                <rect x="10" y="72" width="12" height="6"/><rect x="34" y="72" width="16" height="6"/><rect x="62" y="74" width="12" height="6"/>
+                                <rect x="80" y="72" width="12" height="6"/><rect x="98" y="68" width="12" height="12"/>
+                                <rect x="44" y="86" width="6" height="12"/><rect x="56" y="86" width="12" height="6"/><rect x="74" y="86" width="12" height="6"/>
+                                <rect x="92" y="86" width="18" height="6"/><rect x="56" y="98" width="6" height="12"/><rect x="68" y="98" width="12" height="12"/>
+                                <rect x="86" y="98" width="6" height="6"/><rect x="98" y="98" width="12" height="12"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="qr-pay-info">
+                        <strong>Quét mã QR để thanh toán trước</strong>
+                        <div>Ngân hàng: <b class="js-store-bank-name">Vietcombank (VCB)</b></div>
+                        <div>Số tài khoản: <b class="js-store-bank-no">1028 6688 9999</b></div>
+                        <div>Chủ tài khoản: <b class="js-store-bank-owner">GOC NHO CO EM</b></div>
+                        <div>Số tiền: <b id="qrPayAmount" style="color:var(--pink-deep)">0 ₫</b></div>
+                        <div>Nội dung CK: <b id="qrPayMemo">GNCE THANH TOAN</b></div>
+                        <label class="qr-paid-check">
+                            <input type="checkbox" id="checkoutQrPaid"/>
+                            <span>Tôi đã hoàn tất chuyển khoản qua mã QR này</span>
+                        </label>
+                        <small>Nếu chưa chuyển khoản ngay, đơn sẽ được lưu vào mục <b>Chờ thanh toán</b> để bạn quét QR thanh toán sau.</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field" style="margin-bottom:12px">
+                <label for="checkoutNote">Ghi chú đơn hàng (tùy chọn)</label>
+                <input id="checkoutNote" maxlength="200" placeholder="Ví dụ: Giao giờ hành chính, gọi trước khi giao..."/>
+            </div>
+
+            <!-- TỔNG KẾT THANH TOÁN -->
+            <div class="checkout-totals-box" id="checkoutTotalsBox">
+                <div class="ct-row"><span>Tạm tính tiền hàng</span><strong id="coSubtotal">0 ₫</strong></div>
+                <div class="ct-row"><span id="coShipLabel">Phí vận chuyển (Giao hàng thường)</span><strong id="coShipFee">20.000 ₫</strong></div>
+                <div class="ct-row ct-grand"><span>Tổng thanh toán</span><strong id="coGrandTotal">0 ₫</strong></div>
+            </div>
+
+            <div class="modal-alert hidden" id="checkoutError" role="alert"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" data-close-dialog="" type="button">Hủy</button>
+                <button class="btn btn-primary" type="submit">Xác nhận đặt hàng</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL THANH TOÁN MÃ QR CHO ĐƠN CHỜ THANH TOÁN -->
+    <dialog id="qrPayOrderDialog">
+        <div class="modal-body">
+            <div class="modal-head">
+                <div>
+                    <h2 id="qrOrderTitle">Thanh toán qua mã QR</h2>
+                    <p>Quét mã QR để hoàn tất thanh toán và chuyển đơn sang mục Chờ xác nhận.</p>
+                </div>
+                <button aria-label="Đóng" class="close" data-close-dialog="" type="button">×</button>
+            </div>
+            <div class="qr-pay-box" style="margin-top:0">
+                <div class="qr-code-frame js-store-qr-frame">
+                    <svg viewBox="0 0 120 120" width="136" height="136" role="img" aria-label="QR Thanh toán đơn hàng">
+                        <rect width="120" height="120" rx="10" fill="#ffffff"/>
+                        <rect x="8" y="8" width="28" height="28" rx="4" fill="none" stroke="#423444" stroke-width="4"/>
+                        <rect x="15" y="15" width="14" height="14" rx="2" fill="#df5889"/>
+                        <rect x="84" y="8" width="28" height="28" rx="4" fill="none" stroke="#423444" stroke-width="4"/>
+                        <rect x="91" y="15" width="14" height="14" rx="2" fill="#df5889"/>
+                        <rect x="8" y="84" width="28" height="28" rx="4" fill="none" stroke="#423444" stroke-width="4"/>
+                        <rect x="15" y="91" width="14" height="14" rx="2" fill="#df5889"/>
+                        <g fill="#423444">
+                            <rect x="44" y="10" width="6" height="6"/><rect x="56" y="10" width="6" height="12"/><rect x="68" y="10" width="6" height="6"/>
+                            <rect x="44" y="22" width="12" height="6"/><rect x="68" y="22" width="6" height="12"/>
+                            <rect x="10" y="44" width="12" height="6"/><rect x="28" y="44" width="6" height="12"/><rect x="44" y="44" width="12" height="6"/>
+                            <rect x="68" y="44" width="12" height="6"/><rect x="86" y="44" width="6" height="12"/><rect x="98" y="44" width="12" height="6"/>
+                            <rect x="10" y="56" width="6" height="12"/><rect x="22" y="62" width="12" height="6"/><rect x="44" y="56" width="6" height="12"/>
+                            <rect x="56" y="56" width="12" height="12" fill="#df5889"/><rect x="74" y="56" width="6" height="12"/><rect x="98" y="56" width="12" height="6"/>
+                            <rect x="10" y="72" width="12" height="6"/><rect x="34" y="72" width="16" height="6"/><rect x="62" y="74" width="12" height="6"/>
+                            <rect x="80" y="72" width="12" height="6"/><rect x="98" y="68" width="12" height="12"/>
+                            <rect x="44" y="86" width="6" height="12"/><rect x="56" y="86" width="12" height="6"/><rect x="74" y="86" width="12" height="6"/>
+                            <rect x="92" y="86" width="18" height="6"/><rect x="56" y="98" width="6" height="12"/><rect x="68" y="98" width="12" height="12"/>
+                            <rect x="86" y="98" width="6" height="6"/><rect x="98" y="98" width="12" height="12"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="qr-pay-info">
+                    <strong>Thông tin chuyển khoản</strong>
+                    <div>Ngân hàng: <b class="js-store-bank-name">Vietcombank (VCB)</b></div>
+                    <div>Số tài khoản: <b class="js-store-bank-no">1028 6688 9999</b></div>
+                    <div>Chủ tài khoản: <b class="js-store-bank-owner">GOC NHO CO EM</b></div>
+                    <div>Số tiền: <b id="qrOrderAmount" style="color:var(--pink-deep)">0 ₫</b></div>
+                    <div>Nội dung CK: <b id="qrOrderMemo">GNCE</b></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" data-close-dialog="" type="button">Để sau</button>
+                <button class="btn btn-primary" id="confirmQrOrderPaidBtn" type="button">✓ Tôi đã chuyển khoản</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- MODAL ĐÁNH GIÁ SẢN PHẨM TỪ ĐƠN ĐÃ NHẬN (CHỌN SAO + VIẾT ĐÁNH GIÁ + CHỤP/TẢI ẢNH) -->
+    <dialog id="orderReviewDialog">
+        <form class="modal-body" id="orderReviewForm">
+            <div class="modal-head">
+                <div>
+                    <h2>Đánh giá sản phẩm</h2>
+                    <p>Chia sẻ trải nghiệm thực tế của bé kèm hình ảnh sản phẩm nhé!</p>
+                </div>
+                <button aria-label="Đóng" class="close" data-close-dialog="" type="button">×</button>
+            </div>
+            <div class="booking-service-card variant-product-card" id="orderReviewProductCard"></div>
+            <input type="hidden" id="orderReviewProductId"/>
+            <input type="hidden" id="orderReviewStarsValue" value="5"/>
+
+            <div class="field">
+                <label>Chất lượng sản phẩm *</label>
+                <div class="star-picker-wrap">
+                    <div class="star-picker" id="reviewStarsPicker" role="radiogroup" aria-label="Chọn số sao">
+                        <button type="button" class="star-pick-btn active" data-star="1" aria-label="1 sao">★</button>
+                        <button type="button" class="star-pick-btn active" data-star="2" aria-label="2 sao">★</button>
+                        <button type="button" class="star-pick-btn active" data-star="3" aria-label="3 sao">★</button>
+                        <button type="button" class="star-pick-btn active" data-star="4" aria-label="4 sao">★</button>
+                        <button type="button" class="star-pick-btn active" data-star="5" aria-label="5 sao">★</button>
+                    </div>
+                    <span class="star-picker-label" id="reviewStarsLabel">Tuyệt vời (5/5)</span>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="orderReviewText">Nội dung đánh giá *</label>
+                <div class="review-quick-chips">
+                    <button type="button" class="review-chip" data-review-chip="Đóng gói cẩn thận, giao nhanh.">Đóng gói cẩn thận</button>
+                    <button type="button" class="review-chip" data-review-chip="Sản phẩm đúng mô tả, bé nhà mình rất thích!">Bé rất thích</button>
+                    <button type="button" class="review-chip" data-review-chip="Chất lượng tốt, sẽ ủng hộ shop dài lâu.">Sẽ ủng hộ tiếp</button>
+                </div>
+                <textarea id="orderReviewText" rows="3" required="" placeholder="Hãy chia sẻ cảm nhận về chất lượng, size, màu sắc sản phẩm..."></textarea>
+            </div>
+
+            <div class="field">
+                <label>Chụp hoặc tải hình ảnh sản phẩm (tùy chọn)</label>
+                <div class="review-upload-actions">
+                    <label class="btn btn-outline btn-sm review-upload-btn">
+                        Chụp ảnh sản phẩm
+                        <input type="file" id="orderReviewCamera" accept="image/*" capture="environment" class="hidden"/>
+                    </label>
+                    <label class="btn btn-outline btn-sm review-upload-btn">
+                        Chọn ảnh từ máy
+                        <input type="file" id="orderReviewFile" accept="image/*" class="hidden"/>
+                    </label>
+                </div>
+                <div class="review-preview-wrap hidden" id="orderReviewPreviewWrap">
+                    <img id="orderReviewPreviewImg" alt="Ảnh đánh giá sản phẩm"/>
+                    <button type="button" class="review-preview-remove" id="orderReviewRemoveImg" aria-label="Xóa ảnh">×</button>
+                </div>
+            </div>
+
+            <div class="modal-alert hidden" id="orderReviewError" role="alert"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" data-close-dialog="" type="button">Hủy</button>
+                <button class="btn btn-primary" type="submit">Gửi đánh giá</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL YÊU CẦU TRẢ HÀNG (TRONG VÒNG 3 NGÀY KỂ TỪ KHI NHẬN HÀNG) -->
+    <dialog id="orderReturnDialog">
+        <form class="modal-body" id="orderReturnForm">
+            <div class="modal-head">
+                <div>
+                    <h2 id="orderReturnTitle">Yêu cầu trả hàng</h2>
+                    <p id="orderReturnSub">Điền thông tin liên hệ, chụp ảnh sản phẩm và nêu rõ lí do trả hàng.</p>
+                </div>
+                <button aria-label="Đóng" class="close" data-close-dialog="" type="button">×</button>
+            </div>
+            <input type="hidden" id="orderReturnOrderId"/>
+            <div class="return-order-preview" id="orderReturnSummary"></div>
+
+            <div class="form-grid">
+                <div class="field">
+                    <label for="returnName">Họ tên người gửi trả *</label>
+                    <input id="returnName" maxlength="100" required="" placeholder="Nhập họ tên..."/>
+                </div>
+                <div class="field">
+                    <label for="returnPhone">Số điện thoại liên hệ *</label>
+                    <input id="returnPhone" type="tel" inputmode="tel" maxlength="15" required="" placeholder="09xxxxxxxx"/>
+                </div>
+            </div>
+            <div class="field">
+                <label for="returnAddress">Địa chỉ lấy hàng hoàn *</label>
+                <input id="returnAddress" maxlength="220" required="" placeholder="Số nhà, đường, phường/xã, quận/huyện..."/>
+            </div>
+            <div class="field">
+                <label for="returnRefundInfo">Thông tin nhận hoàn tiền (tùy chọn)</label>
+                <input id="returnRefundInfo" maxlength="150" placeholder="Ví dụ: VCB 0123456789 - Nguyễn Văn A hoặc Momo"/>
+            </div>
+
+            <div class="field">
+                <label for="returnReason">Lí do trả hàng *</label>
+                <div class="review-quick-chips">
+                    <button type="button" class="review-chip" data-return-chip="Sản phẩm bị lỗi / hư hỏng khi nhận hàng.">Sản phẩm bị lỗi</button>
+                    <button type="button" class="review-chip" data-return-chip="Giao sai sản phẩm hoặc sai phân loại đã đặt.">Giao sai sản phẩm</button>
+                    <button type="button" class="review-chip" data-return-chip="Sản phẩm không giống mô tả.">Không giống mô tả</button>
+                    <button type="button" class="review-chip" data-return-chip="Thiếu số lượng hoặc phụ kiện đi kèm.">Thiếu số lượng</button>
+                </div>
+                <textarea id="returnReason" rows="3" required="" placeholder="Mô tả chi tiết tình trạng sản phẩm và lí do bạn muốn trả hàng..."></textarea>
+            </div>
+
+            <div class="field">
+                <label>Chụp hoặc tải hình ảnh sản phẩm *</label>
+                <div class="review-upload-actions">
+                    <label class="btn btn-outline btn-sm review-upload-btn">
+                        Chụp ảnh sản phẩm
+                        <input type="file" id="returnPhotoCamera" accept="image/*" capture="environment" class="hidden"/>
+                    </label>
+                    <label class="btn btn-outline btn-sm review-upload-btn">
+                        Chọn ảnh từ máy
+                        <input type="file" id="returnPhotoFile" accept="image/*" class="hidden"/>
+                    </label>
+                </div>
+                <div class="review-preview-wrap hidden" id="returnPhotoPreviewWrap">
+                    <img id="returnPhotoPreviewImg" alt="Ảnh sản phẩm trả hàng"/>
+                    <button type="button" class="review-preview-remove" id="returnPhotoRemoveImg" aria-label="Xóa ảnh">×</button>
+                </div>
+            </div>
+
+            <div class="modal-alert hidden" id="orderReturnError" role="alert"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" data-close-dialog="" type="button">Hủy</button>
+                <button class="btn btn-primary" type="submit">Xác nhận trả hàng</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL ĐẶT LỊCH SPA (RIÊNG CHO TỪNG DỊCH VỤ ĐÃ CHỌN) -->
+    <dialog id="bookingDialog">
+        <form class="modal-body" id="bookingForm">
+            <div class="modal-head">
+                <div>
+                    <h2 id="bookingModalTitle">Đặt lịch chăm sóc Spa</h2>
+                    <p id="bookingOwnerHint">Điền thông tin bé, chọn khung giờ còn trống và ghi chú.</p>
+                </div>
+                <button aria-label="Đóng" class="close" data-close-dialog="" type="button">×</button>
+            </div>
+            <input id="bookingService" name="ma_dich_vu" type="hidden"/>
+            <div class="booking-service-card" id="bookingServiceSummary"></div>
+            <div class="field hidden" id="savedPetWrap">
+                <label for="bookingSavedPet">Chọn nhanh thú cưng đã lưu</label>
+                <select id="bookingSavedPet" name="ma_thu_cung"></select>
+            </div>
+            <div class="form-grid">
+                <div class="field">
+                    <label for="bookingPet">Tên thú cưng *</label>
+                    <input id="bookingPet" maxlength="50" name="pet" placeholder="Ví dụ: Bông, Mochi..." required=""/>
+                </div>
+                <div class="field">
+                    <label for="bookingType">Loại thú cưng</label>
+                    <select id="bookingType" name="emoji">
+                        <option value="🐶">Chó</option>
+                        <option value="🐱">Mèo</option>
+                        <option value="🐰">Thỏ</option>
+                        <option value="🐹">Thú cưng khác</option>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <label for="bookingDateVN">Ngày hẹn (ngày/tháng/năm) *</label>
+                <div class="date-vn-wrap">
+                    <input id="bookingDateVN" type="text" inputmode="numeric" placeholder="dd/mm/yyyy" maxlength="10" required=""/>
+                    <button type="button" class="date-vn-btn" id="bookingDateTrigger" aria-label="Mở lịch chọn ngày">
+                        <i data-ico="calendar"></i>
+                    </button>
+                    <input id="bookingDateOnly" class="date-vn-native" type="date" tabindex="-1" aria-hidden="true"/>
+                </div>
+            </div>
+            <div class="field">
+                <label>Chọn khung giờ hỗ trợ * <span id="bookingSlotMeta" class="slot-meta"></span></label>
+                <div class="booking-schedule-note hidden" id="bookingScheduleNote"></div>
+                <div class="booking-advisory hidden" id="bookingAdvisory"></div>
+                <input id="bookingSlotValue" name="datetime" type="hidden"/>
+                <div class="slot-grid" id="bookingSlotsGrid">
+                    <div class="slot-loading">Đang tải khung giờ trống...</div>
+                </div>
+            </div>
+            <div class="field">
+                <label for="bookingNote">Ghi chú cho bé (tùy chọn)</label>
+                <input id="bookingNote" name="ghi_chu" maxlength="200" placeholder="Ví dụ: Bé hơi nhát nước, cần sấy nhẹ"/>
+            </div>
+            <div class="modal-alert hidden" id="bookingError" role="alert"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" data-close-dialog="" type="button">Hủy</button>
+                <button class="btn btn-primary" type="submit">Xác nhận lịch hẹn</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL ĐÁNH GIÁ DỊCH VỤ -->
+    <dialog id="serviceReviewDialog">
+        <div class="modal-body">
+            <div class="modal-head">
+                <div>
+                    <h2 id="serviceReviewTitle">Đánh giá dịch vụ ⭐</h2>
+                    <p>Cảm nhận thực tế từ khách hàng đã trải nghiệm dịch vụ.</p>
+                </div>
+                <button aria-label="Đóng" class="close" data-close-dialog="" type="button">×</button>
+            </div>
+            <div id="serviceReviewList" style="max-height:220px;overflow-y:auto;margin-bottom:14px"></div>
+            <form id="serviceReviewForm">
+                <div class="field">
+                    <label>Số sao đánh giá</label>
+                    <select name="so_sao">
+                        <option value="5">★★★★★ (5 sao)</option>
+                        <option value="4">★★★★☆ (4 sao)</option>
+                        <option value="3">★★★☆☆ (3 sao)</option>
+                        <option value="2">★★☆☆☆ (2 sao)</option>
+                        <option value="1">★☆☆☆☆ (1 sao)</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>Nội dung đánh giá *</label>
+                    <textarea name="noi_dung" rows="2" required placeholder="Chia sẻ trải nghiệm Spa của bé nhé..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit">Gửi đánh giá</button>
+                </div>
+            </form>
+            <p class="hint hidden" id="serviceReviewGuestHint">Vui lòng <a href="auth.html" style="color:var(--pink-deep);font-weight:800">đăng nhập</a> để gửi đánh giá dịch vụ.</p>
+        </div>
+    </dialog>
+
+    <!-- MODAL XÁC NHẬN XÓA TÀI KHOẢN KHÁCH HÀNG -->
+    <dialog id="deleteAccountDialog">
+        <form class="modal-body" id="deleteAccountForm">
+            <div class="modal-head">
+                <div>
+                    <h2>Xóa tài khoản vĩnh viễn</h2>
+                    <p>Hành động này không thể hoàn tác.</p>
+                </div>
+                <button aria-label="Đóng" class="close" data-close-dialog="" type="button">×</button>
+            </div>
+            <div class="danger-box">
+                Khi xóa tài khoản, toàn bộ thông tin cá nhân, hồ sơ thú cưng và giỏ hàng của bạn sẽ bị xóa vĩnh viễn khỏi hệ thống.
+                Các đơn hàng đang chờ xử lý hoặc đang vận chuyển cần hoàn tất/hủy trước khi xóa tài khoản.
+            </div>
+            <div class="field">
+                <label for="delAccPassword">Nhập mật khẩu hiện tại để xác nhận *</label>
+                <input id="delAccPassword" type="password" required="" autocomplete="current-password" placeholder="Nhập mật khẩu tài khoản của bạn"/>
+            </div>
+            <div class="modal-alert hidden" id="deleteAccountError" role="alert"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" data-close-dialog="" type="button">Hủy</button>
+                <button class="btn btn-danger" type="submit">Xóa vĩnh viễn tài khoản</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL THÊM / CHỈNH SỬA THÚ CƯNG -->
+    <dialog id="addPetDialog">
+        <form class="modal-body" id="addPetForm">
+            <div class="modal-head">
+                <div>
+                    <h2 id="petModalTitle">Thêm hồ sơ bé cưng</h2>
+                    <p>Lưu thông tin bé để đặt lịch Spa và nhận tư vấn dễ hơn.</p>
+                </div>
+                <button aria-label="Đóng" class="close" data-close-dialog="" type="button">×</button>
+            </div>
+            <input type="hidden" id="petEditId" name="ma_thu_cung"/>
+            <div class="form-grid">
+                <div class="field">
+                    <label>Tên thú cưng *</label>
+                    <input name="ten_thu_cung" maxlength="80" required placeholder="Ví dụ: Mochi"/>
+                </div>
+                <div class="field">
+                    <label>Biểu tượng</label>
+                    <select name="bieu_tuong">
+                        <option value="Chó">Chó</option>
+                        <option value="Mèo">Mèo</option>
+                        <option value="Thỏ">Thỏ</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-grid">
+                <div class="field">
+                    <label>Loài</label>
+                    <input name="loai" maxlength="40" value="Chó" placeholder="Chó / Mèo"/>
+                </div>
+                <div class="field">
+                    <label>Giống</label>
+                    <input name="giong" maxlength="80" placeholder="Poodle, Anh lông ngắn..."/>
+                </div>
+            </div>
+            <div class="form-grid">
+                <div class="field">
+                    <label>Độ tuổi</label>
+                    <input name="tuoi" maxlength="40" placeholder="Ví dụ: 1 tuổi, 6 tháng"/>
+                </div>
+                <div class="field">
+                    <label>Ghi chú về bé (tùy chọn)</label>
+                    <input name="ghi_chu" maxlength="255" placeholder="Dị ứng, tính cách, lưu ý chăm sóc..."/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" data-close-dialog="" type="button">Hủy</button>
+                <button class="btn btn-primary" id="petModalSubmitBtn" type="submit">Lưu hồ sơ bé</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- MODAL THÔNG BÁO ĐƠN HÀNG -->
+    <dialog id="emailInboxDialog" class="email-inbox-dialog">
+        <div class="modal-body">
+            <div class="modal-head">
+                <div>
+                    <h2>Thông báo</h2>
+                </div>
+                <button aria-label="Đóng" class="close" data-close-dialog="" type="button">×</button>
+            </div>
+            <div id="emailListView">
+                <div class="email-inbox-toolbar">
+                    <span id="emailInboxCount" style="font-size:12px;font-weight:750;color:#8e7b90">0 thông báo</span>
+                    <button type="button" class="btn btn-outline btn-sm" id="markAllEmailsReadBtn">Đánh dấu đã đọc tất cả</button>
+                </div>
+                <div class="email-inbox-list" id="emailInboxList"></div>
+            </div>
+            <div id="emailDetailView" class="hidden">
+                <div class="email-detail-bar">
+                    <button type="button" class="btn btn-outline btn-sm" id="backToEmailListBtn">Quay lại thông báo</button>
+                    <span id="emailDetailMeta" style="font-size:11px;color:#938196"></span>
+                </div>
+                <h3 id="emailDetailSubject" style="font-size:15px;margin:10px 0 10px;color:var(--ink)"></h3>
+                <iframe class="email-viewer-frame" id="emailViewerFrame" sandbox="" title="Chi tiết thông báo"></iframe>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- PAWLY AI CHAT -->
+    <button class="ai-float" id="aiToggle">
+        <span class="ai-float-badge"><i data-ico="sparkles"></i></span>
+        Hỏi Pawly AI
+    </button>
+    <section aria-hidden="true" aria-label="Trò chuyện Pawly AI" class="ai-panel" id="aiPanel">
+        <div class="ai-head">
+            <div class="ai-head-brand">
+                <img src="assets/images/ai_mascot.jpg" alt="Pawly AI" class="ai-head-avatar"/>
+                <div>
+                    <strong>Pawly AI</strong>
+                    <small>Trợ lý Góc nhỏ có em · Kết nối kho dữ liệu thật</small>
+                </div>
+            </div>
+            <button aria-label="Đóng trợ lý" id="aiClose">×</button>
+        </div>
+        <div class="ai-messages" id="aiMessages">
+            <div class="bubble bot">
+                Xin chào! Mình là <strong>Pawly AI</strong> của <strong>Góc nhỏ có em</strong>. Mình có thể gợi ý sản phẩm đang còn hàng theo loài &amp; ngân sách, tư vấn dịch vụ Spa và chia sẻ mẹo chăm sóc bé cưng!
+            </div>
+        </div>
+        <div class="ai-prompts">
+            <button data-ai-prompt="Gợi ý sản phẩm cho mèo dưới 200k"><i data-ico="cat"></i> Đồ cho mèo</button>
+            <button data-ai-prompt="Có thức ăn nào cho chó con không?"><i data-ico="dog"></i> Thức ăn cún</button>
+            <button data-ai-prompt="Tư vấn các gói dịch vụ spa"><i data-ico="spa"></i> Dịch vụ spa</button>
+            <button data-ai-prompt="Mẹo chăm sóc thú cưng cơ bản"><i data-ico="health"></i> Mẹo chăm sóc</button>
+        </div>
+        <form class="ai-form" id="aiForm">
+            <input aria-label="Tin nhắn" id="aiInput" maxlength="500" placeholder="Hỏi Pawly về sản phẩm, spa, chăm sóc..." required=""/>
+            <button aria-label="Gửi tin nhắn" type="submit"><i data-ico="send"></i></button>
+        </form>
+        <div class="ai-disclaimer">
+            Thông tin sức khỏe chỉ mang tính tham khảo — khi bé bất thường hãy liên hệ bác sĩ thú y.
+        </div>
+    </section>
+
+    <div aria-live="polite" class="toast" id="toast" role="status"></div>
+
+    <script src="assets/js/icons.js?v=20261122ab"></script>
+    <script src="assets/js/api.js?v=20261124b"></script>
+    <script src="assets/js/customer.js?v=20261124b"></script>
+</body>
+</html>

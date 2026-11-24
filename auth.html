@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Góc nhỏ có em | Đăng nhập & Đăng ký</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="stylesheet" href="assets/css/auth.css?v=20261123d">
+</head>
+<body>
+    <div class="auth-page">
+        <div class="auth-topbar">
+            <a class="back" href="customer.html">
+                <i data-ico="home"></i> Quay lại cửa hàng
+            </a>
+        </div>
+
+        <main class="auth-shell">
+        <section class="art">
+            <div class="auth-brand">
+                <img src="assets/images/logo.png" alt="Logo Góc nhỏ có em" class="auth-logo-img">
+                <div>
+                    <div class="logo">Góc nhỏ <span>có em</span></div>
+                    <div class="tag">PET SHOP &amp; AI CARE</div>
+                </div>
+            </div>
+
+            <div class="slogan">
+                <h1>
+                    Yêu thương thú cưng<br>
+                    trọn vẹn từng khoảnh khắc
+                </h1>
+                <p>
+                    Một tài khoản nhỏ để bạn lưu giữ hồ sơ bé cưng, theo dõi đơn hàng,
+                    đặt lịch Spa và trò chuyện cùng trợ lý Pawly AI.
+                </p>
+            </div>
+
+            <div class="pets-photo">
+                <img src="assets/images/hero_pets.jpg" alt="Cún con và mèo con Góc nhỏ có em">
+            </div>
+        </section>
+
+        <section class="form-side">
+            <div class="tabs">
+                <button id="loginTab" class="active" type="button">
+                    <i data-ico="login"></i> Đăng nhập
+                </button>
+                <button id="registerTab" type="button">
+                    <i data-ico="account"></i> Đăng ký
+                </button>
+            </div>
+
+            <div id="authAlert" class="alert hidden" role="alert"></div>
+
+            <!-- FORM ĐĂNG NHẬP -->
+            <form id="loginForm">
+                <h2>Chào mừng trở lại</h2>
+                <p class="hint">Đăng nhập để tiếp tục với Góc nhỏ có em.</p>
+
+                <div class="field">
+                    <label for="loginIdentifier">Email hoặc số điện thoại</label>
+                    <input id="loginIdentifier" type="text" required autocomplete="username" placeholder="name@email.com hoặc 09xxxxxxxx">
+                </div>
+
+                <div class="field">
+                    <label for="loginPassword">Mật khẩu</label>
+                    <input id="loginPassword" type="password" required autocomplete="current-password" placeholder="••••••••">
+                </div>
+
+                <label class="show-pass-check" for="toggleLoginPass">
+                    <input id="toggleLoginPass" type="checkbox" data-toggle-pass="loginPassword">
+                    <span>Hiển thị mật khẩu</span>
+                </label>
+
+                <button class="submit" type="submit">Đăng nhập</button>
+
+                <p class="switch-text">
+                    Chưa có tài khoản?
+                    <button type="button" id="toRegister">Đăng ký ngay</button>
+                </p>
+
+                <div class="demo-box">
+                    <small>Tài khoản mẫu kiểm thử đồ án (nhấn để điền nhanh):</small>
+                    <div class="demo-pills">
+                        <button type="button" class="demo-pill" data-fill="1" data-email="khachhang@gocnhocoem.vn" data-pass="Khach@123"><i data-ico="account"></i> Khách hàng</button>
+                        <button type="button" class="demo-pill" data-fill="1" data-email="nhanvien@gocnhocoem.vn" data-pass="Staff@123"><i data-ico="shop"></i> Nhân viên</button>
+                        <button type="button" class="demo-pill" data-fill="1" data-email="admin@gocnhocoem.vn" data-pass="Admin@123"><i data-ico="settings"></i> Quản trị viên</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- FORM ĐĂNG KÝ -->
+            <form id="registerForm" class="hidden">
+                <h2>Tạo tài khoản mới</h2>
+                <p class="hint">Điền thông tin để tham gia cộng đồng Góc nhỏ có em.</p>
+
+                <div class="field">
+                    <label for="regName">Họ và tên *</label>
+                    <input id="regName" required autocomplete="name" placeholder="Nguyễn Thị Thảo">
+                </div>
+
+                <div class="field-row">
+                    <div class="field">
+                        <label for="regEmail">Email *</label>
+                        <input id="regEmail" type="email" required autocomplete="email" placeholder="name@email.com">
+                    </div>
+
+                    <div class="field">
+                        <label for="regPhone">Số điện thoại *</label>
+                        <input id="regPhone" type="tel" required autocomplete="tel" placeholder="0912 345 678">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="regAddress">Địa chỉ nhận hàng</label>
+                    <input id="regAddress" autocomplete="street-address" placeholder="Số nhà, đường, quận/huyện, tỉnh/thành">
+                </div>
+
+                <div class="field">
+                    <label for="regPassword">Mật khẩu *</label>
+                    <input id="regPassword" type="password" minlength="6" required autocomplete="new-password" placeholder="Tối thiểu 6 ký tự">
+                </div>
+
+                <label class="show-pass-check" for="toggleRegPass">
+                    <input id="toggleRegPass" type="checkbox" data-toggle-pass="regPassword">
+                    <span>Hiển thị mật khẩu</span>
+                </label>
+
+                <!-- BƯỚC 2: XÁC NHẬN MÃ OTP SỐ ĐIỆN THOẠI -->
+                <div class="reg-otp-panel hidden" id="regOtpPanel">
+                    <div class="reg-otp-head">
+                        <i data-ico="lock"></i>
+                        <div>
+                            <strong>Xác nhận số điện thoại bằng mã OTP</strong>
+                            <small id="regOtpNote">Mã xác nhận 6 chữ số đã được gửi tới số điện thoại của bạn.</small>
+                        </div>
+                    </div>
+
+                    <!-- Thẻ mô phỏng tin nhắn SMS (chỉ hiển thị khi bật chế độ Demo đồ án) -->
+                    <div class="sms-demo-banner hidden" id="regSmsDemoBanner">
+                        <div class="sms-demo-top">
+                            <span class="sms-demo-sender" id="regSmsDemoSender">SMS · GocNhoCoEm</span>
+                            <span class="sms-demo-tag">Vừa xong</span>
+                        </div>
+                        <div class="sms-demo-body" id="regSmsDemoText"></div>
+                    </div>
+
+                    <div class="reg-otp-row">
+                        <input id="regOtpCode" type="text" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="Nhập mã 6 số">
+                        <button type="button" class="reg-otp-resend" id="regOtpResendBtn" disabled>Gửi lại (30s)</button>
+                    </div>
+                    <div class="reg-otp-foot">
+                        <button type="button" class="reg-otp-cancel" id="regOtpCancelBtn">Sửa thông tin / Số điện thoại</button>
+                    </div>
+                </div>
+
+                <button class="submit" id="regSubmitBtn" type="submit">Tạo tài khoản</button>
+
+                <p class="switch-text">
+                    Đã có tài khoản?
+                    <button type="button" id="toLogin">Đăng nhập</button>
+                </p>
+            </form>
+        </section>
+        </main>
+    </div>
+
+    <script src="assets/js/icons.js?v=20261122ab"></script>
+    <script src="assets/js/api.js?v=20261121e"></script>
+    <script src="assets/js/auth.js?v=20261123d"></script>
+</body>
+</html>
